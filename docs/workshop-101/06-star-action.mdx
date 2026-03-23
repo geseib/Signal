@@ -1,0 +1,138 @@
+---
+sidebar_position: 6
+title: "STAR: Action"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+
+# STAR: Action
+
+The **Action** is the heart of your STAR story. This is where interviewers find the richest signal — your decisions, your reasoning, your influence.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## What is the Action?
+
+The Action describes **what you specifically did** — the steps you took, the decisions you made, and how you influenced the outcome. This should be the **longest and most detailed** part of your STAR answer.
+
+### The Action is where signal lives
+
+Interviewers evaluate Actions on several dimensions:
+
+| Dimension | What they're listening for |
+|---|---|
+| **Decision-making** | Did you weigh trade-offs? Did you consider alternatives? |
+| **Ownership** | Did you drive the solution or wait to be told what to do? |
+| **Influence** | Did you need to convince others? How did you do it? |
+| **Judgment** | Did you make reasonable calls given the information available? |
+| **Complexity** | Was the path straightforward, or did you navigate ambiguity? |
+
+### How to structure your Actions
+
+Walk through your actions **chronologically** with clear reasoning:
+
+1. **What you did first** and why
+2. **Key decisions** you made along the way
+3. **Obstacles** you encountered and how you handled them
+4. **How you collaborated** with or influenced others
+
+### Common Action mistakes
+
+**Too vague:**
+> "I worked on the problem and eventually solved it."
+
+This tells the interviewer nothing. *How* did you solve it? What did you try first? What didn't work?
+
+**Too team-focused:**
+> "We brainstormed solutions and then we implemented the best one."
+
+Who drove the brainstorm? Who decided which solution was best? What was YOUR contribution?
+
+**Too tactical (for senior roles):**
+> "I wrote a Python script that parsed the log files."
+
+For a senior role, the interviewer wants to hear about strategy, trade-offs, and influence — not implementation details.
+
+### The "why behind the what"
+
+Strong Actions always include reasoning:
+
+| ❌ What only | ✅ What + Why |
+|---|---|
+| "I set up daily standups" | "I set up daily standups because I noticed the team was making conflicting assumptions about priorities, and I needed a lightweight way to surface those gaps without adding process overhead" |
+| "I chose Redis for caching" | "I chose Redis over Memcached because we needed support for sorted sets to handle our ranked leaderboard, and I validated this with a load test showing 3x throughput improvement" |
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Strengthen these Actions
+
+Read each Action and rewrite it with more depth, reasoning, and specificity.
+
+**1. Weak Action:**
+> "I looked into the issue and fixed the bug."
+
+**Stronger:**
+> "I started by reproducing the issue locally, then added structured logging to narrow it to our connection pooling logic. I discovered we were exhausting database connections under concurrent load because our pool size was hardcoded. I designed a dynamic pooling strategy that scaled with request volume, wrote the implementation with circuit-breaker fallbacks, and validated it under simulated peak load before deploying."
+
+**2. Weak Action:**
+> "I talked to the team and we agreed on a plan."
+
+**Stronger:**
+> "I drafted three potential approaches with trade-offs for each — a quick patch, a medium-effort refactor, and a full rewrite. I presented these to the team in a 30-minute design review, facilitated the discussion, and drove consensus toward the refactor approach because it balanced delivery speed with long-term maintainability. The one dissenter was concerned about testing coverage, so I committed to writing integration tests as part of the scope."
+
+---
+
+**Your turn:** Take your Situation and Task from previous sections. Now add the Action: What did you *do*? Include at least one decision you made and *why* you made it.
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="101-S6"
+  quizId="101-S6-Q1"
+  question="Which part of a STAR answer should be the longest and most detailed?"
+  options={[
+    "Situation — setting the context is most important",
+    "Task — clearly defining your role takes time",
+    "Action — this is where the richest signal lives",
+    "Result — outcomes matter most"
+  ]}
+  correctIndex={2}
+  explanation="The Action is where interviewers find the deepest signal — your decisions, reasoning, influence, and judgment. It should be the most detailed part of your answer, typically 50-60% of your total response time."
+/>
+
+<Quiz
+  sectionId="101-S6"
+  quizId="101-S6-Q2"
+  question="What makes the statement 'I chose Redis over Memcached because we needed sorted sets for our leaderboard' strong?"
+  options={[
+    "It mentions a popular technology",
+    "It includes both the decision AND the reasoning behind it",
+    "It's short and concise",
+    "It shows the candidate knows Redis"
+  ]}
+  correctIndex={1}
+  explanation="The 'why behind the what' is what separates great Actions from mediocre ones. Anyone can describe what they did — explaining WHY shows judgment, trade-off thinking, and decision quality."
+/>
+
+<Quiz
+  sectionId="101-S6"
+  quizId="101-S6-Q3"
+  question="A candidate says 'We brainstormed and implemented the solution.' What's the interviewer's best follow-up?"
+  options={[
+    "'That sounds like a great team effort'",
+    "'What was the solution?'",
+    "'What specifically was YOUR contribution to the brainstorm and implementation?'",
+    "'How long did it take?'"
+  ]}
+  correctIndex={2}
+  explanation="When a candidate uses 'we' in their Action, the interviewer needs to probe for individual contribution. The best follow-up isolates what the candidate personally drove, decided, or influenced."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

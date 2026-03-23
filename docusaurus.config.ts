@@ -65,6 +65,11 @@ const config: Config = {
           label: '301 — Advanced',
         },
         {
+          to: '/progress',
+          label: 'My Progress',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/geseib/Signal',
           label: 'GitHub',
           position: 'right',

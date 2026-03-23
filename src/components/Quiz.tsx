@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useProgressStore} from '../stores/progressStore';
 
 interface QuizProps {
   question: string;
@@ -6,6 +7,8 @@ interface QuizProps {
   correctIndex: number;
   explanation?: string;
   incorrectExplanation?: string;
+  sectionId?: string;
+  quizId?: string;
 }
 
 export default function Quiz({
@@ -14,9 +17,16 @@ export default function Quiz({
   correctIndex,
   explanation,
   incorrectExplanation,
+  sectionId,
+  quizId,
 }: QuizProps) {
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [attempt, setAttempt] = useState(1);
+  const [xpAwarded, setXpAwarded] = useState(0);
+
+  const recordQuizAnswer = useProgressStore((s) => s.recordQuizAnswer);
+  const evaluateSectionCompletion = useProgressStore((s) => s.evaluateSectionCompletion);
 
   const isCorrect = selected === correctIndex;
 
@@ -28,11 +38,24 @@ export default function Quiz({
   const handleSubmit = () => {
     if (selected === null) return;
     setSubmitted(true);
+
+    const correct = selected === correctIndex;
+
+    if (sectionId && quizId) {
+      recordQuizAnswer(sectionId, quizId, correct, attempt);
+      if (correct) {
+        const xp = attempt === 1 ? 10 : attempt === 2 ? 5 : 2;
+        setXpAwarded(xp);
+        evaluateSectionCompletion(sectionId);
+      }
+    }
   };
 
   const handleReset = () => {
     setSelected(null);
     setSubmitted(false);
+    setAttempt((a) => a + 1);
+    setXpAwarded(0);
   };
 
   return (
@@ -71,17 +94,37 @@ export default function Quiz({
       ) : (
         <>
           <div className={`quiz-explanation ${isCorrect ? 'correct' : 'incorrect'}`}>
-            {isCorrect
-              ? explanation || 'Correct!'
-              : incorrectExplanation || explanation || 'Not quite — try reviewing the section above.'}
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+              <span>
+                {isCorrect
+                  ? explanation || 'Correct!'
+                  : incorrectExplanation || explanation || 'Not quite — try reviewing the section above.'}
+              </span>
+              {isCorrect && xpAwarded > 0 && (
+                <span
+                  style={{
+                    fontFamily: 'var(--ifm-heading-font-family)',
+                    fontWeight: 700,
+                    fontSize: '0.85rem',
+                    color: 'var(--signal-teal)',
+                    marginLeft: '1rem',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  +{xpAwarded} XP
+                </span>
+              )}
+            </div>
           </div>
-          <button
-            className="signal-btn signal-btn-secondary"
-            onClick={handleReset}
-            style={{marginTop: '0.75rem'}}
-          >
-            Try Again
-          </button>
+          {!isCorrect && (
+            <button
+              className="signal-btn signal-btn-secondary"
+              onClick={handleReset}
+              style={{marginTop: '0.75rem'}}
+            >
+              Try Again
+            </button>
+          )}
         </>
       )}
     </div>

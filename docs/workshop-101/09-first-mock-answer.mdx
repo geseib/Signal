@@ -1,0 +1,104 @@
+---
+sidebar_position: 9
+title: "Your First Mock Answer"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import SignalStrengthMeter from '@site/src/components/SignalStrengthMeter';
+
+# Your First Mock Answer
+
+Time to evaluate a complete interview answer — then evaluate your own. Use the **Signal Strength Meter** to measure answer quality across four dimensions.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## What makes an answer "high signal"?
+
+Interviewers are looking for **signal** — concrete evidence they can use to evaluate a candidate. A high-signal answer gives the interviewer clear data points. A low-signal answer leaves them guessing.
+
+Four dimensions determine signal strength:
+
+| Dimension | Low Signal | High Signal |
+|---|---|---|
+| **Specificity** | "We had a problem with the system" | "Our payment pipeline was failing 12% of transactions, well above our 0.1% SLA" |
+| **Ownership** | "The team decided to fix it" | "I owned the diagnosis and proposed three solutions to the tech lead" |
+| **Data & Metrics** | "It worked out well" | "Processing time dropped 60%, saving $200K annually" |
+| **Depth of Reasoning** | "I chose option A" | "I chose option A over B because it gave us better latency with lower risk of regressions before our launch" |
+
+### How interviewers use signal
+
+After an interview, the interviewer writes a **debrief document** that synthesizes their assessment. Strong signal makes their job easy:
+
+> **With signal:** "The candidate demonstrated clear ownership of a complex migration project, making a well-reasoned trade-off between timeline risk and system reliability. They quantified the outcome ($400K in cost savings) and showed learning by implementing automated testing afterward."
+>
+> **Without signal:** "The candidate seemed like they worked on a migration. They said it went well."
+
+The first write-up gives the debrief panel data to evaluate. The second gives them nothing.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Practice: Rate this answer
+
+Read the following interview answer, then use the Signal Strength Meter below to rate it across all four dimensions.
+
+**Question:** "Tell me about a time you had to make a decision that was unpopular."
+
+**Answer:**
+> "When I was a product manager at a SaaS company, I decided to delay our flagship feature launch by 3 weeks. The sales team had already committed the launch date to several prospects, and my VP initially pushed back hard. I made this call because our beta testing had revealed a data corruption bug that affected 2% of accounts — low frequency but catastrophic when it hit. I pulled the data together, showed the VP the projected support cost if we launched with the bug ($150K in engineering time plus churn risk on 3 enterprise accounts worth $800K ARR), and proposed a revised timeline. The VP agreed. We used the extra 3 weeks to fix the bug and add a data integrity check that caught similar issues going forward. We launched to zero critical incidents. Two of the three at-risk enterprise clients signed during the extended beta, and our first-month NPS was 72, compared to a company average of 45. The uncomfortable learning for me was that I should have pushed for more beta coverage earlier — the bug was findable, and I didn't prioritize testing enough in the original plan."
+
+### Rate this answer
+
+<SignalStrengthMeter />
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="101-S9"
+  quizId="101-S9-Q1"
+  question="The sample answer above includes the learning: 'I should have pushed for more beta coverage earlier.' Why does this strengthen the answer?"
+  options={[
+    "It makes the candidate seem humble",
+    "It shows self-awareness and growth — the candidate doesn't just celebrate the win, they identify what they'd improve",
+    "It fills time at the end of the answer",
+    "Interviewers always ask about lessons learned"
+  ]}
+  correctIndex={1}
+  explanation="Self-aware reflection is one of the strongest signals an interviewer can receive. It shows the candidate learns from experience, doesn't hide mistakes, and actively improves — traits that predict long-term success."
+/>
+
+<Quiz
+  sectionId="101-S9"
+  quizId="101-S9-Q2"
+  question="When writing your debrief notes, what's the most useful information to capture?"
+  options={[
+    "Whether you liked the candidate personally",
+    "Specific examples from their answers with data points and direct quotes",
+    "A general impression of how the conversation went",
+    "How their resume compares to other candidates"
+  ]}
+  correctIndex={1}
+  explanation="Specific examples, data points, and direct quotes are the foundation of a strong debrief. They give the panel real evidence to evaluate, rather than subjective impressions that are impossible to calibrate."
+/>
+
+<Quiz
+  sectionId="101-S9"
+  quizId="101-S9-Q3"
+  question="You've completed Workshop 101! What should you do next?"
+  options={[
+    "Move to Workshop 201 to learn about leadership principles and interviewer skills",
+    "Go back and re-read every section",
+    "Immediately schedule an interview",
+    "Nothing — you're fully prepared"
+  ]}
+  correctIndex={0}
+  explanation="Workshop 201 builds on these foundations with leadership principles as evaluation lenses, question design, bias prevention, and debrief skills. Keep building your interview toolkit!"
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

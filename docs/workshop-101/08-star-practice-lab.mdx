@@ -1,0 +1,116 @@
+---
+sidebar_position: 8
+title: "STAR Practice Lab"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import STARBuilder from '@site/src/components/STARBuilder';
+
+# STAR Practice Lab
+
+Time to put it all together. In this lab, you'll build complete STAR stories from your own experience using an interactive builder.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The anatomy of a great STAR answer
+
+Let's review the full structure before you build your own:
+
+| Part | Time Share | Key Rule |
+|---|---|---|
+| **Situation** | ~15% | 2-3 sentences. Stakes + context. |
+| **Task** | ~10% | YOUR role. "I" language. |
+| **Action** | ~50-60% | Step-by-step decisions with reasoning. The heart of the answer. |
+| **Result** | ~15-20% | Quantified outcomes + learnings. Pass the "so what?" test. |
+
+### A complete example
+
+> **Question:** "Tell me about a time you had to make a difficult technical decision under time pressure."
+>
+> **S:** "I was the lead backend engineer for our e-commerce platform during last year's Black Friday preparation. Load testing showed our checkout service would fail at 3x our normal traffic — and Black Friday was 2 weeks away."
+>
+> **T:** "I was responsible for identifying the bottleneck and shipping a fix before the traffic surge. The VP of Engineering made it clear that checkout downtime during Black Friday was a company-level risk."
+>
+> **A:** "I started by profiling the checkout flow end-to-end and discovered our inventory check was making synchronous database calls for every item — fine at normal load, catastrophic at scale. I evaluated three options: adding a read replica, implementing a cache, or redesigning the check as an async reservation. I chose the cache approach with Redis because it gave us the best latency improvement with the lowest risk of introducing bugs before a critical event. I wrote the implementation in 3 days, added circuit breaker logic so we'd fall back to direct DB queries if Redis went down, and ran 72 hours of load testing at 5x expected peak. I also wrote a runbook for the on-call team covering the new failure modes."
+>
+> **R:** "Checkout handled 4.2x normal peak traffic on Black Friday with zero downtime. P99 latency for inventory checks dropped from 340ms to 12ms. The approach was later adopted by the shipping and returns teams. The key learning was that our load testing should be a continuous process, not a pre-event scramble — I advocated for and got approval to add automated load testing to our CI pipeline."
+
+### Tips for building your story bank
+
+- **Prepare 6-8 stories** — this covers most interview scenarios
+- **Each story can map to multiple principles** — "Ownership + Bias for Action" or "Dive Deep + Deliver Results"
+- **Practice out loud** — writing is different from speaking
+- **Time yourself** — a complete STAR answer should take 2-4 minutes when spoken
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Build your STAR stories
+
+Use the builder below to construct and save your STAR stories. They're saved to your browser — come back anytime to refine them.
+
+**Start with a challenging project, a difficult decision, or a time you had significant impact.** Use the tips in each field to guide you.
+
+<STARBuilder />
+
+### Suggested story prompts
+
+If you're not sure where to start, try answering one of these:
+
+1. **Tell me about a time you delivered a project under a tight deadline.**
+2. **Describe a situation where you had to convince someone to change their mind.**
+3. **Give me an example of a time you failed and what you learned from it.**
+4. **Tell me about a time you identified a problem that others missed.**
+5. **Describe a decision you made with incomplete information.**
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="101-S8"
+  quizId="101-S8-Q1"
+  question="In a 4-minute STAR answer, approximately how much time should you spend on the Action?"
+  options={[
+    "About 30 seconds — keep it brief",
+    "About 1 minute — equal to the other parts",
+    "About 2-2.5 minutes — this is where the signal lives",
+    "The entire 4 minutes — only the Action matters"
+  ]}
+  correctIndex={2}
+  explanation="The Action should be 50-60% of your answer — about 2-2.5 minutes in a 4-minute response. This is where interviewers find the deepest signal: your decisions, reasoning, and judgment."
+/>
+
+<Quiz
+  sectionId="101-S8"
+  quizId="101-S8-Q2"
+  question="How many STAR stories should you prepare for a typical interview loop?"
+  options={[
+    "1-2 really polished ones",
+    "6-8 versatile ones that map to multiple principles",
+    "15-20 so you never repeat one",
+    "You don't need to prepare — just answer naturally"
+  ]}
+  correctIndex={1}
+  explanation="6-8 well-prepared stories is the sweet spot. Each story can map to multiple principles, giving you flexible coverage without over-preparing. Quality and versatility beat quantity."
+/>
+
+<Quiz
+  sectionId="101-S8"
+  quizId="101-S8-Q3"
+  question="Why should you practice STAR answers out loud, not just in writing?"
+  options={[
+    "Written answers are always too long",
+    "Speaking reveals timing issues, awkward phrasing, and gaps that writing hides",
+    "Interviewers can tell if you've only practiced in writing",
+    "It's not important — writing is sufficient preparation"
+  ]}
+  correctIndex={1}
+  explanation="Speaking your answers out loud surfaces problems writing hides: stories that feel too long, transitions that don't flow, and sections where you lose the thread. Practice until it sounds natural, not rehearsed."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

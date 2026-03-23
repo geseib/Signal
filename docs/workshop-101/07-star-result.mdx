@@ -1,0 +1,124 @@
+---
+sidebar_position: 7
+title: "STAR: Result"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+
+# STAR: Result
+
+The **Result** is your proof. It's where you demonstrate that your Actions actually mattered — with data, outcomes, and learnings.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## What is the Result?
+
+The Result answers: **What happened because of what you did?** It should include:
+
+- **Quantifiable outcomes** (metrics, percentages, timelines)
+- **Business impact** (revenue, customers, efficiency)
+- **What you learned** (especially if the result wasn't perfect)
+
+### Numbers are signal
+
+Vague results give interviewers nothing to calibrate against:
+
+| ❌ Vague | ✅ Specific |
+|---|---|
+| "It went well" | "We reduced API latency from 800ms to 120ms, bringing us under our SLA target" |
+| "The team was happy" | "Team velocity increased 30% in the next sprint, and our NPS score went from 6.2 to 8.1" |
+| "We launched on time" | "We shipped 2 days ahead of deadline, onboarded 3 enterprise clients in the first week, and processed $2.4M in transactions with zero critical incidents" |
+| "It saved us time" | "The automation eliminated 12 hours/week of manual work across the team — roughly $60K/year in engineering time" |
+
+### What if the result was negative?
+
+Not every story has a happy ending — and that's okay. **Interviewers value self-awareness and learning as much as success.** A story about a project that failed can be *more* impressive than a success story, if you demonstrate:
+
+1. **Honest assessment** — What went wrong and why
+2. **Your role in the failure** — No deflecting blame to others
+3. **What you learned** — Specific, actionable takeaways
+4. **What you'd do differently** — Shows growth and reflection
+
+> "The migration ultimately took 3 weeks longer than planned, and we missed our Q3 target. In retrospect, I underestimated the complexity of our legacy data transformations. The key learning for me was to always run a full spike on data migration before committing to a timeline. I've applied this to every migration since — and haven't missed a deadline."
+
+### The "so what?" test
+
+After stating your Result, ask yourself: **"So what?"** If the answer isn't obvious, you need to connect the dots for the interviewer:
+
+- "We reduced churn by 15%" → **So what?** → "Which translated to $800K in retained ARR and was the largest single improvement that quarter."
+- "I built an internal tool" → **So what?** → "It's now used by 40 engineers daily and has eliminated a class of production incidents that was costing us 2 hours of on-call time per week."
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Quantify these Results
+
+Take each vague Result and rewrite it with specific, measurable outcomes.
+
+**1.** "The project was successful."
+
+→ "The project launched on schedule, reduced customer onboarding time from 3 days to 4 hours, and contributed to a 22% increase in Q4 new customer acquisition."
+
+**2.** "My team's morale improved."
+
+→ "After implementing the new process, our team's engagement survey score increased from 3.2 to 4.5 out of 5, voluntary attrition dropped to zero for 6 months, and we delivered 3 consecutive sprints at above-target velocity."
+
+**3.** "The system performed better."
+
+→ "P99 latency dropped from 1.2s to 180ms, error rates fell from 2.3% to 0.05%, and we were able to handle 4x our previous peak traffic during the holiday season without any scaling incidents."
+
+---
+
+**Now complete yours:** Add a Result to the Situation → Task → Action story you've been building. Include at least one number and answer the "so what?" question.
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="101-S7"
+  quizId="101-S7-Q1"
+  question="Which Result statement provides the strongest signal to an interviewer?"
+  options={[
+    "'The project went really well and everyone was happy'",
+    "'We shipped the feature on time'",
+    "'We reduced processing time by 60%, saving $200K annually, and the approach was adopted by two other teams'",
+    "'I got promoted after this project'"
+  ]}
+  correctIndex={2}
+  explanation="Specific metrics (60% reduction), business impact ($200K), and broader influence (adopted by other teams) give interviewers concrete data points to evaluate. Vague positivity and personal outcomes don't demonstrate impact."
+/>
+
+<Quiz
+  sectionId="101-S7"
+  quizId="101-S7-Q2"
+  question="A candidate's project failed. How should they frame the Result?"
+  options={[
+    "Don't mention it — only share success stories",
+    "Blame the circumstances or the team",
+    "Honestly describe what happened, own their part, and articulate what they learned",
+    "Minimize the failure and redirect to a different story"
+  ]}
+  correctIndex={2}
+  explanation="Owning failures with honesty and demonstrating clear learning is one of the strongest signals an interviewer can receive. It shows self-awareness, growth mindset, and intellectual honesty — all high-value traits."
+/>
+
+<Quiz
+  sectionId="101-S7"
+  quizId="101-S7-Q3"
+  question="What is the 'so what?' test for Results?"
+  options={[
+    "Asking whether the result was positive or negative",
+    "Connecting your metrics to real business impact so the interviewer understands why it mattered",
+    "Checking if the interviewer is still paying attention",
+    "Making sure your result sounds impressive enough"
+  ]}
+  correctIndex={1}
+  explanation="The 'so what?' test forces you to connect raw metrics to business meaning. '15% churn reduction' is data; '$800K in retained revenue' is impact. Interviewers need both."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>
