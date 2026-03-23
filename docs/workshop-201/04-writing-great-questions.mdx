@@ -3,6 +3,142 @@ sidebar_position: 4
 title: "Writing Great Questions"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
+
 # Writing Great Questions
 
-*Content coming soon.*
+The best interview questions don't test whether a candidate can answer *your* specific scenario. They invite the candidate to show you the **best version of themselves** — and then you measure *that*.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The goal of a great question
+
+Here's the counterintuitive truth about behavioral interview questions: **you want the candidate to succeed.**
+
+Not because you're being generous — but because the best signal comes from a candidate performing at their peak. If your question is so narrow or obscure that even a strong candidate struggles to find a relevant example, you've wasted your interview time collecting noise.
+
+> **The best interview questions let candidates talk about what they're best at. Then you evaluate the ceiling, not the floor.**
+
+### What makes questions fail
+
+| Problem | Example | Why it fails |
+|---|---|---|
+| **Too specific** | "Tell me about a time you migrated a PostgreSQL database to DynamoDB under regulatory constraints" | Most candidates won't have this exact experience. You're testing memory, not capability. |
+| **Too vague** | "Tell me about a challenge you faced" | So broad that the candidate wastes time picking a story instead of telling one. The answer could go anywhere. |
+| **Leading** | "Tell me about a time you showed great leadership" | You've told them what to demonstrate. They'll frame any story as "leadership" whether it was or not. |
+| **Hypothetical** | "What would you do if your team disagreed with your approach?" | You get rehearsed theory, not evidence of actual behavior. |
+| **Compound** | "Tell me about a time you dealt with conflict on your team and had to deliver under a tight deadline while managing stakeholders" | Three questions in one. The candidate can only address part of it, and you can't tell which parts they skipped vs. forgot. |
+
+### The anatomy of a great question
+
+A great behavioral question has three qualities:
+
+**1. Open enough for the candidate to choose their best story**
+
+Don't prescribe the technology, the team size, or the industry. Let the candidate pick the situation where they shone brightest. Their *choice* of story is itself data — what do they consider their best work?
+
+**2. Focused enough to target a specific principle**
+
+The question should naturally surface evidence for one or two of your evaluation principles. "Tell me about a time you identified a problem no one else saw and drove the solution" naturally targets Ownership and Bias for Action.
+
+**3. Invites depth, not breadth**
+
+The best questions lead to 15-20 minute conversations, not 3-minute summaries. They should have natural probing paths: decisions, tradeoffs, collaboration points, results, and learnings.
+
+### Good questions by principle
+
+| Principle | Great Question | Why it works |
+|---|---|---|
+| **Ownership** | "Tell me about a time you took on something important that wasn't part of your job description." | Open enough for any role. Naturally reveals initiative, scope expansion, and outcome ownership. |
+| **Customer Focus** | "Tell me about a time you changed your approach because of something you learned from a customer or end user." | Invites stories where user feedback actually changed behavior — not just "I care about users." |
+| **Collaboration** | "Tell me about a time you needed to get buy-in from people who didn't report to you." | Targets influencing without authority — a universal collaboration challenge. |
+| **Bias for Action** | "Tell me about a time you had to make a significant decision without complete information." | Reveals how they handle ambiguity, what "enough information" means to them, and how they course-correct. |
+
+### The "tell me about your best work" principle
+
+When in doubt, zoom out. Some of the highest-signal questions are simply:
+
+- *"What's the project you're most proud of in the last two years?"*
+- *"Tell me about the most complex problem you've solved recently."*
+- *"What's the best example of you making something significantly better?"*
+
+These questions let the candidate bring their A-game. And when someone shows you the best version of themselves — **that is the ceiling.** You can evaluate: Is this ceiling high enough? Does this best-case scenario demonstrate the principles we care about?
+
+If their best story doesn't show ownership, depth, or impact — that's definitive signal. You're not seeing a nervous candidate on a bad day. You're seeing their highlight reel.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Rewrite weak questions
+
+Each question below has a problem. Rewrite it as a great behavioral question that follows the principles above: open enough for the candidate's best story, focused on a principle, and deep enough for a 15-minute conversation.
+
+<WritingExercise
+  question="Rewrite these three weak questions into strong behavioral questions:
+
+1. WEAK: 'Tell me about a time you used Kubernetes to solve a scaling problem.' (Too specific)
+
+2. WEAK: 'Are you good at working with difficult people?' (Leading/hypothetical)
+
+3. WEAK: 'Tell me about a challenge.' (Too vague)"
+  context="For each, write one improved question. Think about: What principle does the question target? Is it open enough for ANY candidate to find a strong story? Would it lead to a 15-minute conversation with natural probing paths?"
+  sectionId="201-S4"
+  rubric="Each rewritten question should: (1) Be open enough that any candidate regardless of tech stack or domain can find a relevant story from their experience. (2) Target a specific evaluation principle — ownership, collaboration, customer focus, or bias for action — without naming it explicitly (no leading). (3) Ask about past behavior ('tell me about a time...') not hypotheticals ('what would you do...'). (4) Be specific enough to focus the answer but not so narrow it restricts the candidate's story choice. For question 1, the fix should remove the technology constraint while keeping the problem-solving focus. For question 2, the fix should convert from a yes/no leading question to a behavioral question about navigating interpersonal difficulty. For question 3, the fix should add enough focus to target a principle while staying open. A strong answer demonstrates understanding that great questions invite the candidate's best story rather than testing for specific experience."
+  placeholder="Rewrite each question. For each one, briefly note which principle it targets and why it's an improvement over the original."
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S4"
+  quizId="201-S4-Q1"
+  question="Why do overly specific questions ('Tell me about a time you migrated from Oracle to PostgreSQL') produce weak signal?"
+  options={[
+    "They're too easy for experienced candidates",
+    "They test whether the candidate has that exact experience, not their capability",
+    "They take too long to answer",
+    "They make the interviewer look uninformed"
+  ]}
+  correctIndex={1}
+  explanation="Overly specific questions turn the interview into a memory test. A brilliant engineer who migrated from MySQL to DynamoDB has equivalent experience but would struggle to answer. You've filtered on specifics, not capability."
+  incorrectExplanation="The problem is specificity, not difficulty. You're testing whether they've had one exact experience rather than evaluating their actual capability and problem-solving approach."
+/>
+
+<Quiz
+  sectionId="201-S4"
+  quizId="201-S4-Q2"
+  question="A candidate picks their 'proudest project' and the story is well-told but shows no evidence of collaboration or customer focus. What does this tell you?"
+  options={[
+    "Nothing — the question didn't ask about those principles",
+    "The candidate's ceiling doesn't include those principles — that's definitive signal",
+    "You should ask them a follow-up question specifically about collaboration",
+    "The question was too open — you should have been more specific"
+  ]}
+  correctIndex={1}
+  explanation="When you let candidates show their best work and specific principles are absent, that's meaningful. Their highlight reel is their ceiling. If collaboration doesn't appear in the story they're most proud of, it's likely not a strength."
+  incorrectExplanation="Open questions are powerful precisely because the candidate's CHOICE of story is data. When their best work doesn't demonstrate a principle, that absence is real signal about their ceiling."
+/>
+
+<Quiz
+  sectionId="201-S4"
+  quizId="201-S4-Q3"
+  question="Which question best targets the Ownership principle while staying open enough for any candidate?"
+  options={[
+    "Tell me about a time you led a team of 5+ people on a critical project",
+    "Tell me about a time you took on something important that wasn't your responsibility",
+    "Have you ever gone above and beyond at work?",
+    "Describe your management style"
+  ]}
+  correctIndex={1}
+  explanation="This question targets Ownership (acting beyond your scope) without prescribing team size, seniority, or domain. Any candidate — IC or manager, junior or senior — can find a relevant story. And 'not your responsibility' naturally invites probing about why they stepped in."
+  incorrectExplanation="The best question is open enough for any candidate while naturally surfacing evidence of a specific principle. 'Took on something important that wasn't your responsibility' directly targets Ownership without constraining the story."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

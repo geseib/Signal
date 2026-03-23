@@ -21,7 +21,7 @@ export const SECTIONS: SectionMeta[] = [
   {id: '101-S8', title: 'STAR Practice Lab', workshop: '101', quizCount: 3, maxXP: 80},
   {id: '101-S9', title: 'Your First Mock Answer', workshop: '101', quizCount: 3, maxXP: 80},
   // Workshop 201 (placeholders)
-  {id: '201-S1', title: 'Leadership Principles Overview', workshop: '201', quizCount: 3, maxXP: 80},
+  {id: '201-S1', title: "Your Organization's Principles", workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S2', title: 'Mapping Stories to Principles', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S3', title: 'Probing & Follow-ups', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S4', title: 'Writing Great Questions', workshop: '201', quizCount: 3, maxXP: 80},

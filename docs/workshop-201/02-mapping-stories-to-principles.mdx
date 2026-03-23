@@ -3,6 +3,148 @@ sidebar_position: 2
 title: "Mapping Stories to Principles"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+
 # Mapping Stories to Principles
 
-*Content coming soon.*
+A candidate tells you a story. Your job is to hear *which principles* that story demonstrates — and which it doesn't. This is the core skill of principles-based evaluation.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## Four universal evaluation principles
+
+In Section 1 you identified your organization's principles. For this workshop, we'll use four that appear — in some form — across nearly every company's framework:
+
+| Principle | What it means | Signal in a STAR answer |
+|---|---|---|
+| **Ownership** | Taking responsibility beyond your immediate scope; acting like it's your company | "I noticed the problem wasn't assigned to anyone, so I took it on" rather than "I was told to fix it" |
+| **Customer Focus** | Decisions driven by impact on the end user, not internal convenience | The candidate explains *who* was affected and *how* their actions improved the user experience |
+| **Collaboration** | Working across teams, navigating disagreements, building alignment | Evidence of influencing without authority, resolving conflicts, or bringing others along |
+| **Bias for Action** | Moving forward with imperfect information; calculated speed over analysis paralysis | The candidate made a decision and course-corrected, rather than waiting for perfect data |
+
+These four principles give you broad coverage of how someone **thinks** (Customer Focus), **acts** (Ownership, Bias for Action), and **works with others** (Collaboration).
+
+## How to listen for principles in a story
+
+When a candidate tells a STAR story, you're not just listening to *what happened*. You're listening for **evidence of specific principles in action**.
+
+### The mapping process
+
+1. **Listen to the full story first** — don't try to categorize while they're still talking
+2. **Identify the key decisions** — what did the candidate choose to do and why?
+3. **Map decisions to principles** — which principles drove those decisions?
+4. **Note what's missing** — a great story about ownership might show zero collaboration. That's data too.
+
+### One story, multiple principles
+
+A single STAR answer often demonstrates 2-3 principles simultaneously. Your job is to pull them apart:
+
+**Example story excerpt:**
+> "Our biggest customer was about to churn because of a performance issue in a service owned by another team. I could have filed a ticket and waited, but instead I reached out directly to that team's tech lead, proposed a joint debugging session, and we found the root cause in two days. The customer renewed their contract."
+
+**Principle mapping:**
+- ✅ **Ownership** — took action on a problem outside their direct responsibility
+- ✅ **Customer Focus** — motivated by customer impact, not internal process
+- ✅ **Collaboration** — reached across team boundaries, proposed joint work
+- ✅ **Bias for Action** — chose to act immediately rather than file a ticket and wait
+
+### Watch for "borrowed" stories
+
+Sometimes a candidate tells a story where the principle-driven decisions were made by someone else: *"My manager decided to..."* or *"The team chose to..."* That's a flag — you need to probe deeper (we'll cover this in Section 3).
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Map these stories to principles
+
+Read each STAR story excerpt and identify **which of the four principles** (Ownership, Customer Focus, Collaboration, Bias for Action) are demonstrated. A story may show multiple principles, or none at all.
+
+---
+
+**Story A:**
+> "We were three weeks from launch and discovered a data migration bug that would corrupt about 5% of user records. The bug was in a module maintained by another team. I spent the weekend writing a migration fix, got it reviewed by their tech lead on Monday, and we shipped the patch before any users were affected."
+
+→ **Ownership** — fixed a bug in another team's code without being asked.
+→ **Bias for Action** — spent the weekend on it rather than waiting for the other team's sprint cycle.
+→ **Customer Focus** — motivated by protecting users from data corruption.
+→ **Collaboration** — got the other team's tech lead to review the fix rather than merging unilaterally.
+
+*All four principles are present in this story. That's strong signal.*
+
+---
+
+**Story B:**
+> "My manager asked me to improve the onboarding flow. I ran some A/B tests, and the results showed a 15% improvement. I presented the results at our team meeting."
+
+→ **Customer Focus** — weak signal. The improvement helps users, but the motivation described is task completion ("my manager asked me"), not user empathy.
+→ **Ownership** — absent. The candidate executed an assignment; they didn't identify the problem or expand the scope.
+→ **Collaboration** — absent. No evidence of cross-team work.
+→ **Bias for Action** — absent. The candidate followed a standard process (A/B test → present results).
+
+*This story is competent execution, but shows limited principle-driven behavior. That's useful data for your evaluation.*
+
+---
+
+**Story C:**
+> "Two engineering teams were arguing over the API contract for a new integration. Each team wanted the other to do the heavy lifting. I set up a design review with both tech leads, proposed a compromise that split the work based on each team's strengths, and documented the agreement so we could hold each other accountable. We shipped on time."
+
+→ **Collaboration** — strong signal. The candidate navigated a cross-team conflict and built alignment.
+→ **Ownership** — the candidate stepped in to resolve a blocker they could have ignored.
+→ **Bias for Action** — organized the review proactively rather than waiting for management to intervene.
+→ **Customer Focus** — not directly present. The focus was on internal team dynamics, not user impact.
+
+*Three of four principles — and the absent one (Customer Focus) is informative. You might probe: "What was the user impact of shipping on time versus the delay?"*
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S2"
+  quizId="201-S2-Q1"
+  question="A candidate says: 'My manager asked me to look into the issue, so I ran the diagnostics she suggested and reported back.' Which principle is LEAST demonstrated?"
+  options={[
+    "Customer Focus",
+    "Ownership",
+    "Collaboration",
+    "Bias for Action"
+  ]}
+  correctIndex={1}
+  explanation="Ownership means acting beyond what you were asked to do. This candidate followed instructions well but didn't take initiative, expand scope, or identify the problem themselves."
+  incorrectExplanation="The candidate executed a task they were given. The missing principle is Ownership — there's no evidence of initiative beyond the assignment."
+/>
+
+<Quiz
+  sectionId="201-S2"
+  quizId="201-S2-Q2"
+  question="A STAR story demonstrates strong Collaboration and Bias for Action, but no Customer Focus. What should you do?"
+  options={[
+    "Mark it as a weak answer — all four principles should be present",
+    "Note which principles are demonstrated and which are absent — both are useful data",
+    "Ignore the missing principle — two out of four is enough",
+    "Ask the candidate to tell a different story"
+  ]}
+  correctIndex={1}
+  explanation="Not every story will demonstrate every principle — and that's fine. What matters is that you track both what's present and what's absent. The gaps inform your follow-up questions and your debrief assessment."
+/>
+
+<Quiz
+  sectionId="201-S2"
+  quizId="201-S2-Q3"
+  question="Why is it important to listen to the FULL story before mapping it to principles?"
+  options={[
+    "It's more polite to let them finish",
+    "The most important principle evidence often appears in the Action and Result, not the Situation",
+    "You might forget the beginning if you start categorizing too early",
+    "Candidates always save the best part for the end"
+  ]}
+  correctIndex={1}
+  explanation="If you start categorizing during the Situation, you'll anchor on early impressions. The Action and Result are where you'll find the strongest evidence of principle-driven decision-making."
+  incorrectExplanation="The key reason is that principle evidence concentrates in the Action and Result phases. Premature categorization during the Situation leads to anchoring bias."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

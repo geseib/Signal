@@ -24,7 +24,7 @@ export const BADGES: BadgeDefinition[] = [
     description: 'Complete your first section',
     emoji: '👣',
     criteria: (s) =>
-      ['101-S1', '101-S2', '101-S3'].some((id) => isSectionComplete(s, id)),
+      Object.values(s).some((section) => section.status === 'complete'),
   },
   {
     id: 'star-student',
@@ -60,7 +60,7 @@ export const BADGES: BadgeDefinition[] = [
   {
     id: 'principle-thinker',
     name: 'Principle Thinker',
-    description: 'Complete Leadership Principles Overview',
+    description: "Complete Your Organization's Principles",
     emoji: '🧭',
     criteria: (s) => isSectionComplete(s, '201-S1'),
   },

@@ -12,13 +12,32 @@ interface AnalysisResult {
   summary: string;
 }
 
+interface AIFeedback {
+  passed: boolean;
+  score: number;
+  feedback: string;
+}
+
 interface WritingExerciseProps {
   question: string;
   context?: string;
   sectionId?: string;
+  rubric?: string;
+  placeholder?: string;
 }
 
+const ACCESS_CODE_KEY = 'signal-access-code';
 const STORAGE_KEY = 'signal-writing-exercises';
+
+function loadAccessCode(): string {
+  if (typeof window === 'undefined') return '';
+  return localStorage.getItem(ACCESS_CODE_KEY) || '';
+}
+
+function saveAccessCode(code: string) {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(ACCESS_CODE_KEY, code);
+}
 
 function loadDrafts(): Record<string, {text: string; revision: number}> {
   if (typeof window === 'undefined') return {};
@@ -176,52 +195,139 @@ const scoreLabels: Record<string, string> = {
   strong: 'Strong Signal',
 };
 
-export default function WritingExercise({question, context, sectionId}: WritingExerciseProps) {
+export default function WritingExercise({question, context, sectionId, rubric, placeholder}: WritingExerciseProps) {
   const storageKey = sectionId ? `${sectionId}-writing` : question.slice(0, 40);
   const saved = typeof window !== 'undefined' ? loadDrafts()[storageKey] : undefined;
 
   const [text, setText] = useState(saved?.text || '');
   const [revision, setRevision] = useState(saved?.revision || 0);
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
+  const [aiFeedback, setAiFeedback] = useState<AIFeedback | null>(null);
   const [isRevising, setIsRevising] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [accessCode, setAccessCode] = useState(loadAccessCode);
+  const [showCodeInput, setShowCodeInput] = useState(false);
 
   const wordCount = text.split(/\s+/).filter(Boolean).length;
+  const hasAI = Boolean(rubric);
+  const hasValidCode = accessCode.length > 0;
 
-  const handleSubmit = useCallback(() => {
+  const evaluateWithAI = useCallback(async (): Promise<AIFeedback> => {
+    const response = await fetch('/api/evaluate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        answer: text.trim(),
+        question,
+        rubric,
+        accessCode,
+      }),
+    });
+
+    if (response.status === 401) {
+      throw new Error('INVALID_CODE');
+    }
+
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    return response.json();
+  }, [text, question, rubric, accessCode]);
+
+  const handleSubmit = useCallback(async () => {
     if (wordCount < 15) return;
-    const result = analyzeAnswer(text);
-    setAnalysis(result);
+
     const newRevision = revision + 1;
     setRevision(newRevision);
     saveDraft(storageKey, text, newRevision);
+    setAiError(null);
+
+    if (hasAI && hasValidCode) {
+      setIsLoading(true);
+      try {
+        const result = await evaluateWithAI();
+        setAiFeedback(result);
+        setAnalysis(null);
+      } catch (err) {
+        if (err instanceof Error && err.message === 'INVALID_CODE') {
+          setAiError('Invalid access code. Check your code and try again, or use offline feedback.');
+          saveAccessCode('');
+          setAccessCode('');
+        } else {
+          setAiError('AI evaluation unavailable. Using offline feedback instead.');
+        }
+        // Fall back to heuristic analysis
+        const result = analyzeAnswer(text);
+        setAnalysis(result);
+        setAiFeedback(null);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      const result = analyzeAnswer(text);
+      setAnalysis(result);
+      setAiFeedback(null);
+    }
+
     setIsRevising(false);
-  }, [text, wordCount, revision, storageKey]);
+  }, [text, wordCount, revision, storageKey, hasAI, hasValidCode, evaluateWithAI]);
 
   const handleRevise = () => {
     setIsRevising(true);
     setAnalysis(null);
+    setAiFeedback(null);
+    setAiError(null);
   };
+
+  const handleSaveCode = (code: string) => {
+    setAccessCode(code);
+    saveAccessCode(code);
+    setShowCodeInput(false);
+  };
+
+  const hasResults = analysis || aiFeedback;
 
   return (
     <div className="signal-card" style={{margin: '1.5rem 0', padding: '1.5rem'}}>
       <div style={{marginBottom: '1rem'}}>
-        <span
-          style={{
-            display: 'inline-block',
-            fontFamily: 'var(--ifm-heading-font-family)',
-            fontWeight: 700,
-            fontSize: '0.7rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            padding: '0.15rem 0.5rem',
-            borderRadius: 'var(--signal-radius-sm)',
-            background: 'var(--signal-teal)',
-            color: 'white',
-            marginBottom: '0.75rem',
-          }}
-        >
-          Writing Exercise
-        </span>
+        <div style={{display: 'flex', gap: '0.5rem', marginBottom: '0.75rem'}}>
+          <span
+            style={{
+              display: 'inline-block',
+              fontFamily: 'var(--ifm-heading-font-family)',
+              fontWeight: 700,
+              fontSize: '0.7rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              padding: '0.15rem 0.5rem',
+              borderRadius: 'var(--signal-radius-sm)',
+              background: 'var(--signal-teal)',
+              color: 'white',
+            }}
+          >
+            Writing Exercise
+          </span>
+          {hasAI && hasValidCode && (
+            <span
+              style={{
+                display: 'inline-block',
+                fontFamily: 'var(--ifm-heading-font-family)',
+                fontWeight: 700,
+                fontSize: '0.7rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                padding: '0.15rem 0.5rem',
+                borderRadius: 'var(--signal-radius-sm)',
+                background: 'var(--signal-graphite, #2d2f34)',
+                color: 'white',
+              }}
+            >
+              AI Coach Enabled
+            </span>
+          )}
+        </div>
 
         <p
           style={{
@@ -241,13 +347,87 @@ export default function WritingExercise({question, context, sectionId}: WritingE
         )}
       </div>
 
+      {/* Access code input for AI mode */}
+      {hasAI && !hasValidCode && !showCodeInput && (
+        <div
+          style={{
+            padding: '0.75rem 1rem',
+            marginBottom: '1rem',
+            borderRadius: 'var(--signal-radius-sm)',
+            background: 'rgba(43, 207, 206, 0.06)',
+            border: '1px solid var(--signal-teal)',
+            fontSize: '0.85rem',
+          }}
+        >
+          <p style={{margin: '0 0 0.5rem'}}>
+            This exercise supports <strong>AI-powered coaching</strong> via Claude. Enter your access code to enable it, or use the offline feedback below.
+          </p>
+          <button
+            className="signal-btn signal-btn-secondary"
+            onClick={() => setShowCodeInput(true)}
+            style={{fontSize: '0.8rem', padding: '0.3rem 0.75rem'}}
+          >
+            Enter Access Code
+          </button>
+        </div>
+      )}
+
+      {showCodeInput && (
+        <div
+          style={{
+            padding: '0.75rem 1rem',
+            marginBottom: '1rem',
+            borderRadius: 'var(--signal-radius-sm)',
+            background: 'rgba(43, 207, 206, 0.06)',
+            border: '1px solid var(--signal-teal)',
+          }}
+        >
+          <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+            <input
+              type="text"
+              placeholder="Access code"
+              style={{
+                flex: 1,
+                padding: '0.4rem 0.75rem',
+                border: '1px solid var(--signal-silver)',
+                borderRadius: 'var(--signal-radius-sm)',
+                fontSize: '0.85rem',
+                fontFamily: 'var(--ifm-font-family-base)',
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSaveCode((e.target as HTMLInputElement).value.trim());
+                }
+              }}
+            />
+            <button
+              className="signal-btn signal-btn-primary"
+              style={{fontSize: '0.8rem', padding: '0.4rem 0.75rem'}}
+              onClick={(e) => {
+                const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
+                handleSaveCode(input?.value?.trim() || '');
+              }}
+            >
+              Save
+            </button>
+            <button
+              className="signal-btn signal-btn-secondary"
+              style={{fontSize: '0.8rem', padding: '0.4rem 0.75rem'}}
+              onClick={() => setShowCodeInput(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Writing area */}
-      {(!analysis || isRevising) && (
+      {(!hasResults || isRevising) && (
         <>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Write your answer here using a real example from your experience. Think about the STAR elements: set the scene (Situation), describe your responsibility (Task), walk through your key actions and reasoning (Action), and share the measurable outcome (Result)."
+            placeholder={placeholder || "Write your answer here. Be specific — concrete details, clear reasoning, and measurable outcomes make for the strongest responses."}
             rows={8}
             style={{
               width: '100%',
@@ -277,10 +457,14 @@ export default function WritingExercise({question, context, sectionId}: WritingE
             <button
               className="signal-btn signal-btn-primary"
               onClick={handleSubmit}
-              disabled={wordCount < 15}
-              style={{opacity: wordCount < 15 ? 0.5 : 1}}
+              disabled={wordCount < 15 || isLoading}
+              style={{opacity: wordCount < 15 || isLoading ? 0.5 : 1}}
             >
-              {revision > 0 ? 'Resubmit for Coaching' : 'Get Coaching Feedback'}
+              {isLoading
+                ? 'Evaluating...'
+                : revision > 0
+                  ? 'Resubmit for Coaching'
+                  : 'Get Coaching Feedback'}
             </button>
           </div>
           {wordCount < 15 && wordCount > 0 && (
@@ -291,10 +475,101 @@ export default function WritingExercise({question, context, sectionId}: WritingE
         </>
       )}
 
-      {/* Analysis results */}
+      {/* AI error message */}
+      {aiError && (
+        <p style={{fontSize: '0.8rem', color: 'var(--signal-ember)', margin: '0.5rem 0'}}>
+          {aiError}
+        </p>
+      )}
+
+      {/* AI Feedback results */}
+      {aiFeedback && !isRevising && (
+        <div style={{marginTop: '0.5rem'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '1rem',
+              borderRadius: 'var(--signal-radius-sm)',
+              background: aiFeedback.passed
+                ? 'rgba(43, 207, 206, 0.08)'
+                : 'rgba(236, 77, 37, 0.08)',
+              borderLeft: `4px solid ${aiFeedback.passed ? 'var(--signal-teal)' : 'var(--signal-ember)'}`,
+              marginBottom: '1rem',
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  marginBottom: '0.35rem',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--ifm-heading-font-family)',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    color: aiFeedback.passed ? 'var(--signal-teal)' : 'var(--signal-ember)',
+                  }}
+                >
+                  {aiFeedback.passed ? 'Strong Signal' : 'Developing'}
+                </span>
+                <span
+                  style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: 'var(--signal-slate)',
+                  }}
+                >
+                  Score: {aiFeedback.score}/100
+                </span>
+              </div>
+              <p style={{fontSize: '0.85rem', margin: '0.25rem 0 0', lineHeight: 1.6}}>
+                {aiFeedback.feedback}
+              </p>
+            </div>
+          </div>
+
+          {/* Your submitted answer */}
+          <div style={{marginTop: '1rem'}}>
+            <h4
+              style={{
+                fontFamily: 'var(--ifm-heading-font-family)',
+                fontSize: '0.95rem',
+                marginBottom: '0.5rem',
+              }}
+            >
+              Your Answer (Revision {revision})
+            </h4>
+            <div
+              style={{
+                padding: '0.75rem',
+                borderRadius: 'var(--signal-radius-sm)',
+                background: 'rgba(147, 149, 153, 0.06)',
+                fontSize: '0.85rem',
+                lineHeight: 1.6,
+                whiteSpace: 'pre-wrap',
+              }}
+            >
+              {text}
+            </div>
+          </div>
+
+          <div style={{marginTop: '1rem', display: 'flex', gap: '0.75rem'}}>
+            <button className="signal-btn signal-btn-primary" onClick={handleRevise}>
+              Revise My Answer
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Heuristic analysis results (fallback) */}
       {analysis && !isRevising && (
         <div style={{marginTop: '0.5rem'}}>
-          {/* Overall signal banner */}
           <div
             style={{
               display: 'flex',
@@ -329,7 +604,6 @@ export default function WritingExercise({question, context, sectionId}: WritingE
             </div>
           </div>
 
-          {/* Per-dimension coaching */}
           <h4
             style={{
               fontFamily: 'var(--ifm-heading-font-family)',
@@ -385,7 +659,6 @@ export default function WritingExercise({question, context, sectionId}: WritingE
             </div>
           ))}
 
-          {/* Your submitted answer */}
           <div style={{marginTop: '1rem'}}>
             <h4
               style={{
@@ -410,7 +683,6 @@ export default function WritingExercise({question, context, sectionId}: WritingE
             </div>
           </div>
 
-          {/* Revise button */}
           <div style={{marginTop: '1rem', display: 'flex', gap: '0.75rem'}}>
             <button className="signal-btn signal-btn-primary" onClick={handleRevise}>
               Revise My Answer

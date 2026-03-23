@@ -3,6 +3,136 @@ sidebar_position: 3
 title: "Probing & Follow-ups"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+
 # Probing & Follow-ups
 
-*Content coming soon.*
+The initial STAR answer is just the surface. **Probing** is how you find out whether the candidate actually did the work — and how deeply they understand what they did.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## Why probing matters
+
+A polished STAR story sounds great. But how much of it was actually *the candidate's* work? People naturally absorb team accomplishments into their personal narratives. They're not lying — they just blur the line between "I" and "we" over time.
+
+Probing solves this. When you dig into the details, two things happen:
+
+1. **People who did the work can go deeper.** They'll explain the tradeoffs, the surprises, the things that almost went wrong. They'll use specific technical details without rehearsal.
+2. **People who were peripheral will hit a wall.** They'll repeat the same high-level story, deflect to team-level language, or give vague answers about the "how."
+
+### The depth test
+
+Think of probing as a depth test. Each follow-up question takes the candidate one level deeper:
+
+| Level | What you hear | What it tells you |
+|---|---|---|
+| **Surface** | "We built a new data pipeline" | They know the project existed |
+| **Involvement** | "I designed the schema and wrote the ingestion layer" | They had a specific role |
+| **Understanding** | "I chose Kafka over SQS because we needed replay capability and our throughput was 50K events/sec" | They made technical decisions and can explain why |
+| **Mastery** | "In hindsight, I'd have added a dead-letter queue earlier — we lost about 2 hours of events during the first incident because I hadn't accounted for poison messages" | They internalized the lessons and can critique their own work |
+
+**You don't need the candidate to be a domain expert in your area.** If they truly owned the work, they can explain it so clearly that *you* understand it — even if you've never touched Kafka, data pipelines, or whatever technology they describe. That ability to make the complex understandable is itself strong signal.
+
+### What to probe for
+
+**Interesting details you heard:** When something in the story catches your attention — an unusual decision, an unexpected outcome, a moment of conflict — follow that thread. *"You mentioned the team pushed back on your approach. Tell me more about that."*
+
+**Things that might be under the covers:** Every project has hidden complexity. If the story sounds too clean, probe for what went wrong. *"What was the hardest part of this that you haven't mentioned yet?"*
+
+**The 'I' vs. 'We' boundary:** When the candidate uses "we," gently redirect. *"You said 'we decided' — what was your specific role in that decision?"*
+
+**The reasoning behind decisions:** Don't accept "I chose option A." Ask why. *"What were the alternatives you considered, and what made you pick that approach?"*
+
+### Probing phrases that work
+
+Keep these natural and conversational — probing shouldn't feel like an interrogation:
+
+| Purpose | Phrase |
+|---|---|
+| **Go deeper** | "Tell me more about how you specifically contributed to that." |
+| **Clarify ownership** | "When you say 'we,' what was your individual role?" |
+| **Explore reasoning** | "Walk me through your thinking when you made that decision." |
+| **Find hidden complexity** | "What was the part of this that didn't go as planned?" |
+| **Test understanding** | "If you had to explain that tradeoff to a non-technical stakeholder, how would you describe it?" |
+| **Explore learning** | "What would you do differently if you faced this situation again?" |
+
+### When probing reveals weak signal
+
+Sometimes probing reveals that the candidate's contribution was smaller than the initial story suggested. That's **not a failure** — it's the system working. You've generated real data. A candidate who can't go deep on their own story is giving you honest signal about their level of involvement.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Identify the probing opportunities
+
+Read this candidate's initial answer and identify **three places** where you would probe deeper.
+
+**Question asked:** "Tell me about a time you had to deliver a project under a tight deadline."
+
+**Candidate's answer:**
+> "Last year we had a major client who needed a custom reporting dashboard by the end of the quarter — about six weeks out. The existing system couldn't handle their data volume. We decided to rebuild the aggregation layer and add a caching tier. I worked with the frontend team to redesign the UI while the backend changes were happening. We shipped two days early and the client renewed their contract for another year."
+
+**Probing opportunities:**
+
+→ **"We decided to rebuild the aggregation layer" — who decided?** The candidate used "we" for the biggest technical decision in the story. Probe: *"Walk me through how that decision was made. What was your role in choosing to rebuild vs. other approaches?"*
+
+→ **"I worked with the frontend team" — what does 'worked with' mean?** This could mean they led the redesign, or it could mean they attended meetings. Probe: *"What specifically did you own in the frontend redesign? What decisions did you make?"*
+
+→ **The story is very clean — nothing went wrong.** A six-week rebuild of an aggregation layer with a caching tier and UI redesign, delivered early? Probe: *"What was the biggest risk or setback you encountered during those six weeks?"*
+
+→ **"The client renewed" — was that because of the dashboard?** The Result connects the project to a business outcome, but the causal link is asserted, not proven. Probe: *"How did you know the dashboard was the reason the client renewed? Did they give specific feedback?"*
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S3"
+  quizId="201-S3-Q1"
+  question="A candidate says 'We decided to migrate to microservices.' What is the best follow-up?"
+  options={[
+    "Why did you choose microservices over a monolith?",
+    "What was your specific role in that decision?",
+    "How long did the migration take?",
+    "Was it successful?"
+  ]}
+  correctIndex={1}
+  explanation="The 'we' is doing a lot of work in that sentence. Before exploring the technical decision, you need to establish the candidate's individual role. Were they the architect who proposed it, or a developer who implemented one service?"
+  incorrectExplanation="When you hear 'we decided,' your first priority is clarifying the candidate's individual contribution. Asking about the technical reasoning is valuable, but only after you know whose reasoning you're hearing."
+/>
+
+<Quiz
+  sectionId="201-S3"
+  quizId="201-S3-Q2"
+  question="You probe a candidate about a technical decision and they give a clear, detailed explanation — but you don't have expertise in that technology. How should you interpret this?"
+  options={[
+    "You can't evaluate it without domain expertise — move on",
+    "If they can explain it clearly enough for you to follow, that's strong signal of deep understanding",
+    "Ask them to simplify it further until you fully understand the technology",
+    "Take their word for it — detailed answers are always trustworthy"
+  ]}
+  correctIndex={1}
+  explanation="Someone who truly owned the work can explain complex tradeoffs in a way that any smart person can follow. The ability to make the complex understandable — regardless of your expertise — is itself evidence of deep understanding."
+  incorrectExplanation="You don't need to be a domain expert. If the candidate can make complex work understandable to a non-expert, that's evidence of genuine depth. If they can't explain it clearly, that's a flag."
+/>
+
+<Quiz
+  sectionId="201-S3"
+  quizId="201-S3-Q3"
+  question="After probing, you discover the candidate's actual contribution was smaller than their initial story suggested. What should you conclude?"
+  options={[
+    "The candidate was dishonest — give a No Hire",
+    "The probing process worked — you now have accurate data to evaluate their actual level of contribution",
+    "Ignore the probing results and evaluate based on the original story",
+    "The candidate is bad at interviewing — give them the benefit of the doubt"
+  ]}
+  correctIndex={1}
+  explanation="This is the probing process working exactly as designed. People naturally blur 'I' and 'we' — that's human, not dishonest. Your job is to find the true signal. Now you can evaluate their actual contribution level, which is real data."
+  incorrectExplanation="People naturally absorb team accomplishments into their stories. Probing isn't about catching lies — it's about finding the accurate level of individual contribution. That's valuable data, not a reason to penalize."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>
