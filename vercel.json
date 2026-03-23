@@ -1,0 +1,4 @@
+{
+  "buildCommand": "npx docusaurus build",
+  "outputDirectory": "build"
+}
