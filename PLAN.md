@@ -1,73 +1,102 @@
 # Signal - Interview Workshop Design Plan
 
 ## Overview
-An interactive, web-based workshop for learning better interview techniques, modeled after the design patterns in [geseib/iknowgenai](https://github.com/geseib/iknowgenai). Deployed on **Vercel**. Built with **React + Vite**.
+An interactive, web-based workshop for learning better interview techniques, modeled after [geseib/ibuildwithgenai](https://github.com/geseib/ibuildwithgenai). Deployed on **Vercel**. Built with **Docusaurus 3.7 + React + TypeScript** — the same stack as ibuildwithgenai.
 
 ---
 
-## Tech Stack
-- **React 19** + **Vite 7** (matching iknowgenai pattern)
-- **Phosphor Icons** for iconography
-- **Inline CSS / CSS Modules** (no heavy framework)
-- **Vercel** for deployment (static site, zero backend)
-- Fully client-side, no API dependencies
+## Tech Stack (matching ibuildwithgenai)
+- **Docusaurus 3.7** (static site generator with MDX content)
+- **React 18 + TypeScript**
+- **Zustand** (localStorage-based progress tracking, XP/badges)
+- **Framer Motion** (animations)
+- **Vitest + Playwright** (testing)
+- **Vercel** for deployment
+- **Optional**: Anthropic API via serverless function for AI-powered evaluation (ComprehensionCheck pattern)
+
+### Design System (inherited from ibuildwithgenai)
+- **Fonts**: Fredoka (headings), Inter (body), JetBrains Mono (code)
+- **Color DNA**: Cyan (#00bbf9), Pink (#f15bb5), Purple (#9b5de5), Green (#06d6a0), Yellow (#fee440)
+- **Glass-morphism** surfaces with blur/transparency
+- **Responsive** font scaling via CSS `clamp()`
+- **Dark mode** enabled by default
 
 ---
 
 ## Content Architecture
 
 ### Foundational Framework: Amazon Interview Methodology
-The workshop builds on proven Amazon interviewing techniques as scaffolding, then broadens to universal skills.
+The workshop builds on proven Amazon interviewing techniques as scaffolding, then broadens to universal skills. Each section follows the **Learn-Do-Check** pattern from ibuildwithgenai:
+- **Learn** (2-4 min): Brief conceptual instruction
+- **Do** (5-8 min): Hands-on exercises and practice
+- **Check**: Interactive Quiz/ComprehensionCheck components
 
-### Group 1 — Foundations (The "Why")
-1. **Why Interviews Fail** — Common pitfalls for both interviewers and candidates; the cost of bad hires
-2. **The Bar Raiser Philosophy** — What it means to raise the bar with every hire; calibration thinking
-3. **Behavioral vs. Technical** — Understanding the two dimensions and why behavioral matters more than most think
+### Workshop 101 — Foundations & the STAR Method (Guided, ~120 min)
+| # | Section | Time | Learning Goal |
+|---|---------|------|---------------|
+| 1 | **Why Interviews Fail** | 15 min | Identify common pitfalls for interviewers and candidates; understand the cost of bad hires |
+| 2 | **The Bar Raiser Philosophy** | 15 min | Explain what "raising the bar" means and how calibration thinking improves hiring |
+| 3 | **Behavioral vs. Technical** | 15 min | Distinguish behavioral and technical dimensions; explain why behavioral matters |
+| 4 | **The STAR Method: Situation** | 10 min | Set context with constraints, stakes, and scope |
+| 5 | **The STAR Method: Task** | 10 min | Define YOUR specific role and responsibility (not the team's) |
+| 6 | **The STAR Method: Action** | 10 min | Articulate what YOU did, decisions YOU made, how YOU influenced |
+| 7 | **The STAR Method: Result** | 10 min | Deliver quantifiable outcomes, learnings, and retrospective thinking |
+| 8 | **STAR Practice Lab** | 20 min | Build complete STAR stories from personal experience using the STAR Builder |
+| 9 | **Your First Mock Answer** | 15 min | Deliver a full STAR answer and self-evaluate using the Signal Strength Meter |
 
-### Group 2 — The STAR Method Deep Dive
-4. **Situation** — Setting the scene: context, constraints, stakes
-5. **Task** — Defining your specific role and responsibility (not the team's)
-6. **Action** — The core: what YOU did, decisions YOU made, how YOU influenced
-7. **Result** — Quantifiable outcomes, learnings, what you'd do differently
-8. **STAR Practice Lab** — Interactive: break down sample stories, build your own, get structured feedback prompts
+### Workshop 201 — Leadership Principles & Interviewer Skills (Supported, ~120 min)
+| # | Section | Time | Learning Goal |
+|---|---------|------|---------------|
+| 1 | **Leadership Principles Overview** | 15 min | Understand the 16 Amazon LPs as a thinking framework (applicable beyond Amazon) |
+| 2 | **Mapping Stories to Principles** | 20 min | Match personal experiences to principles; demonstrate one story → multiple LPs |
+| 3 | **Probing & Follow-ups** | 15 min | Master the art of going deeper: "Tell me more", "What would you do differently?" |
+| 4 | **Writing Great Questions** | 15 min | Design open-ended, behavioral, principle-aligned interview questions |
+| 5 | **Active Listening & Note-Taking** | 15 min | Capture signal vs. noise during an interview |
+| 6 | **Avoiding Bias** | 15 min | Apply structured evaluation to reduce bias; calibration techniques |
+| 7 | **The Debrief** | 15 min | Present your assessment, defend your vote, make a hire/no-hire decision |
+| 8 | **Capstone: Run a Practice Debrief** | 20 min | Conduct a simulated debrief using provided interview notes |
 
-### Group 3 — Leadership Principles as Interview Lenses
-9. **Principles Overview** — The 16 Amazon Leadership Principles as a thinking framework (applicable beyond Amazon)
-10. **Mapping Stories to Principles** — Interactive: match your experiences to principles; one story can demonstrate multiple
-11. **Probing & Follow-ups** — The art of going deeper: "Tell me more", "What would you do differently?", "What was the hardest part?"
+### Workshop 301 — Advanced & Real-World Application (Independent, ~90 min)
+| # | Section | Time | Learning Goal |
+|---|---------|------|---------------|
+| 1 | **The Full Interview Loop** | 15 min | Understand loop structure, role assignments, and phone screen vs. onsite |
+| 2 | **Competency Frameworks Beyond Amazon** | 15 min | Adapt LP-style thinking to Google, Meta, startup, and general frameworks |
+| 3 | **Technical Interview Integration** | 15 min | Weave behavioral signals into system design and coding interviews |
+| 4 | **Difficult Interview Scenarios** | 15 min | Handle incomplete answers, red flags, nervous candidates, and senior-level ambiguity |
+| 5 | **Building an Interview Story Bank** | 15 min | Curate 8-12 versatile stories covering multiple principles |
+| 6 | **Capstone: Full Mock Interview** | 30 min | Interactive walkthrough of a complete interview with decision points |
 
-### Group 4 — Interviewer Skills
-12. **Writing Great Questions** — Open-ended, behavioral, principle-aligned question design
-13. **Active Listening & Note-Taking** — Capturing signal vs. noise during an interview
-14. **Avoiding Bias** — Structured evaluation to reduce bias; calibration techniques
-15. **The Debrief** — How to present your assessment, defend your vote, and make a hire/no-hire decision
-
-### Group 5 — Putting It Together
-16. **Mock Interview Walkthrough** — Animated/interactive walkthrough of a full interview loop
-17. **Self-Assessment & Checklist** — Knowledge check quiz + personal readiness assessment
+### Specialty Content
+- **For Hiring Managers**: Headcount planning, job descriptions, recruiter partnership
+- **Interview Ethics**: Fairness, accommodations, legal considerations
+- **Self-Assessment & Readiness Check**: Knowledge check quiz + personal readiness scoring
 
 ---
 
-## Interactive Modes (matching iknowgenai pattern)
+## Interactive Components (MDX, globally available)
 
-| Mode | Description |
-|------|-------------|
-| **Workshop Mode** | Facilitator-led pacing with discussion prompts and group exercises |
-| **Solo Mode** | Self-directed learning at your own pace |
-| **Presentation Mode** | Full-screen slides, keyboard navigation, optimized for projection |
-| **Focus Mode** | Minimal UI, content-only view |
+Matching the ibuildwithgenai pattern of reusable MDX components:
+
+| Component | Description | Inspired By |
+|-----------|-------------|-------------|
+| **Quiz** | Multiple-choice with explanations and XP rewards | Quiz.tsx |
+| **ComprehensionCheck** | Free-response with optional AI rubric evaluation | ComprehensionCheck.tsx |
+| **Checklist** | Track completion of multi-step exercises | Checklist.tsx |
+| **STARBuilder** | Guided form to construct STAR stories; saves to localStorage | New |
+| **PrincipleMatcher** | Drag-and-drop: match stories to leadership principles | New |
+| **SignalStrengthMeter** | Rate interview answers on data/specificity/ownership dimensions | New |
+| **InterviewSimulator** | Step-through mock interview with branching decision points | New |
+| **QuestionGenerator** | Given a principle, surface example behavioral questions | New |
+| **LearnDoCheck** | Section wrapper with timing (directly from ibuildwithgenai) | LearnDoCheck |
 
 ---
 
-## Interactive Components
-
-- **STAR Builder** — Guided form to construct STAR stories; saves locally
-- **Principle Matcher** — Drag-and-drop matching stories to leadership principles
-- **Question Generator** — Given a principle, generates example behavioral questions
-- **Interview Simulator** — Step-through a mock interview with decision points
-- **Signal Strength Meter** — Rate interview answers on data/specificity/ownership dimensions
-- **Glossary** — Key terms (Bar Raiser, Loop, Debrief, Writeup, etc.)
-- **Knowledge Check** — Quiz with scenario-based questions and feedback
+## Progress System (matching ibuildwithgenai)
+- **XP points** earned through quizzes, exercises, and completions
+- **Badges** for workshop milestones (e.g., "STAR Storyteller", "Bar Raiser Ready", "Debrief Pro")
+- **localStorage-based** — no auth required
+- **Progress dashboard** page showing completion across all workshops
+- Zustand store for state management
 
 ---
 
@@ -75,102 +104,142 @@ The workshop builds on proven Amazon interviewing techniques as scaffolding, the
 
 ```
 Signal/
-├── public/
-│   └── favicon.svg
+├── api/
+│   └── evaluate.ts                  # Vercel serverless: AI evaluation endpoint
+├── docs/
+│   ├── workshop-101/
+│   │   ├── _category_.json
+│   │   ├── index.mdx
+│   │   ├── 01-why-interviews-fail.mdx
+│   │   ├── 02-bar-raiser-philosophy.mdx
+│   │   ├── 03-behavioral-vs-technical.mdx
+│   │   ├── 04-star-situation.mdx
+│   │   ├── 05-star-task.mdx
+│   │   ├── 06-star-action.mdx
+│   │   ├── 07-star-result.mdx
+│   │   ├── 08-star-practice-lab.mdx
+│   │   └── 09-first-mock-answer.mdx
+│   ├── workshop-201/
+│   │   ├── _category_.json
+│   │   ├── index.mdx
+│   │   ├── 01-leadership-principles-overview.mdx
+│   │   ├── 02-mapping-stories-to-principles.mdx
+│   │   ├── 03-probing-and-followups.mdx
+│   │   ├── 04-writing-great-questions.mdx
+│   │   ├── 05-active-listening.mdx
+│   │   ├── 06-avoiding-bias.mdx
+│   │   ├── 07-the-debrief.mdx
+│   │   └── 08-capstone-practice-debrief.mdx
+│   ├── workshop-301/
+│   │   ├── _category_.json
+│   │   ├── index.mdx
+│   │   ├── 01-full-interview-loop.mdx
+│   │   ├── 02-frameworks-beyond-amazon.mdx
+│   │   ├── 03-technical-interview-integration.mdx
+│   │   ├── 04-difficult-scenarios.mdx
+│   │   ├── 05-building-story-bank.mdx
+│   │   └── 06-capstone-full-mock.mdx
+│   ├── specialty/
+│   │   ├── hiring-managers.mdx
+│   │   ├── interview-ethics.mdx
+│   │   └── self-assessment.mdx
+│   └── guides/
+│       ├── facilitator-guide.mdx
+│       └── contributor-guide.mdx
 ├── src/
-│   ├── App.jsx                    # Main app with routing/mode management
-│   ├── main.jsx                   # Entry point
 │   ├── components/
-│   │   ├── Navigation.jsx         # Section navigation sidebar
-│   │   ├── ModeSelector.jsx       # Workshop/Solo/Presentation/Focus toggle
-│   │   ├── Header.jsx             # App header with branding
-│   │   └── ProgressBar.jsx        # Section progress indicator
-│   ├── sections/
-│   │   ├── S01_WhyInterviewsFail.jsx
-│   │   ├── S02_BarRaiserPhilosophy.jsx
-│   │   ├── S03_BehavioralVsTechnical.jsx
-│   │   ├── S04_Situation.jsx
-│   │   ├── S05_Task.jsx
-│   │   ├── S06_Action.jsx
-│   │   ├── S07_Result.jsx
-│   │   ├── S08_STARPracticeLab.jsx
-│   │   ├── S09_PrinciplesOverview.jsx
-│   │   ├── S10_MappingStories.jsx
-│   │   ├── S11_ProbingFollowups.jsx
-│   │   ├── S12_WritingQuestions.jsx
-│   │   ├── S13_ActiveListening.jsx
-│   │   ├── S14_AvoidingBias.jsx
-│   │   ├── S15_TheDebrief.jsx
-│   │   ├── S16_MockInterview.jsx
-│   │   └── S17_SelfAssessment.jsx
-│   ├── interactive/
-│   │   ├── STARBuilder.jsx
-│   │   ├── PrincipleMatcher.jsx
-│   │   ├── QuestionGenerator.jsx
-│   │   ├── InterviewSimulator.jsx
-│   │   ├── SignalStrengthMeter.jsx
-│   │   └── KnowledgeCheck.jsx
+│   │   ├── display/               # Badge, ProgressBar, etc.
+│   │   ├── icons/
+│   │   ├── interactive/           # Quiz, ComprehensionCheck, Checklist,
+│   │   │                          # STARBuilder, PrincipleMatcher,
+│   │   │                          # SignalStrengthMeter, InterviewSimulator,
+│   │   │                          # QuestionGenerator
+│   │   └── navigation/
+│   ├── context/                   # Environment/config context
+│   ├── css/
+│   │   └── custom.css             # Design system (Color DNA, glass-morphism, etc.)
 │   ├── data/
-│   │   ├── leadershipPrinciples.js
-│   │   ├── sampleQuestions.js
-│   │   ├── sampleStories.js
-│   │   ├── glossary.js
-│   │   └── quizQuestions.js
+│   │   ├── leadershipPrinciples.ts
+│   │   ├── sampleQuestions.ts
+│   │   ├── sampleStories.ts
+│   │   ├── glossary.ts
+│   │   └── quizData.ts
+│   ├── hooks/                     # Custom React hooks
+│   ├── pages/
+│   │   ├── index.tsx              # Landing page with hero + workshop cards
+│   │   └── progress.tsx           # Progress dashboard
+│   ├── stores/
+│   │   └── progressStore.ts       # Zustand: XP, badges, completion
+│   ├── theme/                     # Docusaurus theme overrides
+│   ├── types/
 │   └── utils/
-│       ├── animations.js
-│       └── localStorage.js
-├── index.html
-├── package.json
-├── vite.config.js
+├── static/                        # Images, fonts, favicon
+├── tests/
+│   ├── unit/
+│   └── e2e/
+├── docusaurus.config.ts
+├── sidebars.ts
 ├── vercel.json
-└── README.md
+├── package.json
+├── tsconfig.json
+└── vitest.config.ts
 ```
 
 ---
 
 ## Vercel Deployment
+- `vercel.json`: `{ "buildCommand": "npx docusaurus build", "outputDirectory": "build" }`
+- Zero-config via Vercel GitHub integration
+- Optional `ANTHROPIC_API_KEY` env var for AI evaluation
 
-- `vercel.json` with SPA rewrite rules
-- Build command: `npm run build`
-- Output directory: `dist`
-- Zero-config deployment via Vercel CLI or GitHub integration
+---
+
+## Custom Admonitions (matching ibuildwithgenai pattern)
+- **:::captain-tip** → **:::interviewer-tip** — Pro tips for interviewers
+- **:::ethics-check** → **:::bias-alert** — Prompts to check for bias or fairness issues
 
 ---
 
 ## Implementation Phases
 
 ### Phase 1 — Scaffold & Core Shell
-- Vite + React project setup
-- App shell with mode selector, navigation, header
-- Vercel config
-- First 3 sections (Group 1) with content
+- Docusaurus project init with TypeScript
+- Design system CSS (adapted from ibuildwithgenai Color DNA)
+- Landing page with hero + workshop cards
+- Sidebar navigation config
+- Vercel deployment config
+- Workshop 101 index + first 3 sections with Learn-Do-Check content
 
-### Phase 2 — STAR Deep Dive (Group 2)
-- Sections 4-8
-- STAR Builder interactive component
-- Practice Lab with guided exercises
+### Phase 2 — STAR Method (Workshop 101 continued)
+- Sections 4-9
+- STARBuilder interactive component
+- SignalStrengthMeter component
+- Quiz components with XP
 
-### Phase 3 — Leadership Principles (Group 3)
-- Sections 9-11
-- Principle Matcher interactive
-- Leadership principles data
+### Phase 3 — Leadership & Interviewer Skills (Workshop 201)
+- All 8 sections
+- PrincipleMatcher interactive
+- QuestionGenerator component
+- Leadership principles data file
 
-### Phase 4 — Interviewer Skills (Group 4)
-- Sections 12-15
-- Question Generator
-- Signal Strength Meter
+### Phase 4 — Advanced Workshop (301) & Specialty
+- All 6 sections including Full Mock capstone
+- InterviewSimulator with branching decisions
+- Specialty content (hiring managers, ethics, self-assessment)
 
-### Phase 5 — Capstone (Group 5)
-- Mock Interview walkthrough
-- Knowledge Check quiz
-- Self-Assessment checklist
-- Glossary
+### Phase 5 — Progress System & Polish
+- Zustand progress store
+- XP + badge system
+- Progress dashboard page
+- ComprehensionCheck with AI evaluation (serverless function)
+- Testing (Vitest unit + Playwright e2e)
 
 ---
 
-## Design Principles (from iknowgenai)
-- **Big, clear, visible** — Optimized for projection and group settings
-- **Content-first** — No unnecessary chrome; content drives the UI
-- **Interactive scaffolding** — Modes adapt to context (workshop vs. self-study)
-- **Zero friction** — No login, no backend, no setup; just open and learn
-- **Factually grounded** — Real interview methodology, not generic advice
+## Design Principles
+- **Learn-Do-Check** — Every section follows the same pedagogical pattern
+- **Captain, Not Passenger** → **Interviewer, Not Spectator** — You drive the process
+- **Content-first** — MDX content drives the UI; no unnecessary chrome
+- **Zero friction** — No login, no backend dependency for core features
+- **Factually grounded** — Real interview methodology from Amazon, not generic advice
+- **Progressive scaffolding** — 101 (guided) → 201 (supported) → 301 (independent)
