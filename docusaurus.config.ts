@@ -48,6 +48,7 @@ const config: Config = {
       logo: {
         alt: 'Signal Logo',
         src: 'img/radio_tower_1A_black.svg',
+        srcDark: 'img/radio_tower_1A_white.svg',
       },
       items: [
         {
