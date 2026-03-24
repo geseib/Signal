@@ -3,6 +3,172 @@ sidebar_position: 6
 title: "Avoiding Bias"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
+
 # Avoiding Bias
 
-*Content coming soon.*
+Every interviewer has biases. That's not a moral failing — it's a cognitive limitation. The question isn't whether you're biased. It's whether you have **processes in place** to prevent those biases from contaminating your signal.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## Why bias matters in interviews
+
+An unstructured interview is a bias delivery system. Without structure, interviewers default to pattern-matching against their own experiences, preferences, and mental models. The result: you hire people who remind you of yourself, or who remind you of the last person who succeeded, or who happen to make a strong first impression.
+
+Structured interviewing — principles-based evaluation, behavioral questions, evidence-based notes — is the primary defense. Everything you've learned in this workshop so far is, in part, a bias mitigation strategy. But you also need to know the specific bias patterns so you can catch them when they slip through.
+
+### The biases that affect interviewers most
+
+| Bias | What it is | How it shows up in interviews |
+|---|---|---|
+| **Confirmation bias** | Seeking evidence that supports your initial impression while ignoring contradicting evidence | You decide in the first 5 minutes that a candidate is strong, then spend the rest of the interview noticing their strengths and overlooking their weaknesses |
+| **Halo effect** | One positive trait colors your entire evaluation | A candidate who gives a brilliant answer to your first question gets rated highly on every principle — even the ones you didn't probe |
+| **Horn effect** | One negative trait colors your entire evaluation | A candidate stumbles on the first question and you mentally downgrade them for the rest of the interview, even when later answers are strong |
+| **Similarity bias (affinity bias)** | Favoring candidates who are like you | You feel a stronger connection with candidates who went to the same school, share your hobbies, or have a similar communication style |
+| **Anchoring** | Over-weighting the first piece of information you receive | Reading another interviewer's feedback before your own write-up shifts your assessment toward theirs |
+| **Contrast effect** | Evaluating a candidate relative to the previous one instead of against the bar | After three weak candidates, an average candidate feels exceptional. After a stellar candidate, a strong one feels mediocre. |
+| **Recency bias** | Over-weighting what happened most recently | The candidate's last answer dominates your overall assessment, even if earlier answers were stronger or weaker |
+| **First impression bias** | Letting the first few minutes disproportionately shape your evaluation | A candidate who seems nervous in the intro gets rated lower, even though their actual answers are strong once they settle in |
+
+### How structured interviewing fights bias
+
+The good news: most of what you've already learned in this workshop is bias-resistant by design.
+
+| Workshop skill | Bias it counters |
+|---|---|
+| **Principles-based evaluation** | Forces you to evaluate against defined criteria, not gut feel — counters confirmation bias and similarity bias |
+| **Behavioral questions** | Asks for evidence of past behavior, not hypotheticals — counters halo/horn effects by demanding specific examples |
+| **Probing and follow-ups** | Pushes past polished surfaces to find real signal — counters first impression bias |
+| **Independent write-ups before debrief** | Prevents anchoring on other interviewers' opinions |
+| **Principle-by-principle debrief** | Prevents halo/horn effects from carrying across principles |
+
+> **Structure doesn't eliminate bias. It limits the damage bias can do.** Every structured process you follow is a guardrail against your own cognitive shortcuts.
+
+### Separating observation from interpretation
+
+This is the single most important bias mitigation technique for interviewers. When you take notes, you're doing two things at once — and you need to keep them separate:
+
+**Observation** (what the candidate said and did):
+- "Candidate described pulling three months of logs to identify the scope of the problem"
+- "Candidate said 'we decided' when describing the architecture choice — did not clarify individual role when probed"
+- "Candidate quantified the result: reduced latency from 340ms to 12ms"
+
+**Interpretation** (what you think it means):
+- "Candidate has strong analytical skills"
+- "Candidate may not have been the decision-maker"
+- "Candidate is results-oriented"
+
+Observations are evidence. Interpretations are conclusions. **Your notes should be overwhelmingly observations.** Save your interpretations for your written evaluation after the interview — and when you do interpret, make sure every interpretation is supported by at least one specific observation.
+
+| Biased note (interpretation as observation) | Unbiased note (observation) |
+|---|---|
+| "Candidate is a strong leader" | "Candidate described reorganizing the on-call rotation, getting buy-in from 3 team leads, and reducing incident response time by 40%" |
+| "Candidate didn't seem very technical" | "When asked about the database migration tradeoffs, candidate spoke at a high level and said 'the team handled the technical details'" |
+| "Really impressive — went to MIT" | "Candidate described building a distributed caching layer that handled 50K requests/sec" |
+| "Seemed nervous and unsure" | "Candidate paused for 15 seconds before answering the first question. Subsequent answers were detailed and specific." |
+| "Not a culture fit" | "Candidate described preferring to work independently and said they 'don't love meetings.' When probed on collaboration, gave an example of async code reviews but no examples of real-time problem-solving with others." |
+
+Notice the last example. The observation still captures potentially concerning information — but it's *evidence* that the debrief panel can evaluate, not a label that shuts down discussion.
+
+### Calibrating with your panel
+
+Before the interview loop begins, the panel should align on:
+
+1. **What principles each interviewer is evaluating** — so there's no overlap and no gaps
+2. **What "strong" looks like for each principle at this level** — a senior engineer's Ownership looks different from a junior engineer's
+3. **The bar** — is this a backfill for a known strong team, or a growth hire where potential matters more?
+
+This pre-calibration reduces bias because interviewers enter the room with a shared framework rather than individual, unspoken standards.
+
+### Common traps and how to avoid them
+
+**The "airport test"**: "Would I want to be stuck in an airport with this person?" This is similarity bias disguised as a reasonable question. You're hiring a colleague, not a travel companion.
+
+**The credential halo**: Prestigious schools and well-known companies create an immediate positive impression that has nothing to do with the candidate's actual ability. Evaluate what they *did*, not where they did it.
+
+**The confident speaker**: Confidence and competence are correlated — but not as strongly as you think. Quiet, thoughtful candidates may have deeper expertise than charismatic ones. Probe both equally.
+
+**The "gut feeling"**: If your gut says hire or no-hire but you can't articulate why with specific evidence, your gut is probably reflecting a bias, not signal. Evidence you can write down is signal. Everything else is noise.
+
+> **The test for bias is simple: Can you support your assessment with specific things the candidate said and did? If not, you're not evaluating — you're reacting.**
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Rewrite biased notes
+
+Below are five interviewer notes taken during a behavioral interview. Some are good observations. Some are biased interpretations. Rewrite the biased notes as objective behavioral observations that would be useful in a debrief.
+
+<WritingExercise
+  question="Review these five interviewer notes and rewrite the biased ones as objective behavioral observations. If a note is already a good observation, say so and explain why.
+
+1. 'Great energy — really likable person. Would be a great culture fit.'
+
+2. 'Candidate described identifying a 15% drop in conversion rate by analyzing A/B test data, then proposed and implemented a revised checkout flow that recovered 12% of the lost conversions within two weeks.'
+
+3. 'Not technical enough. Couldn't go deep on system design.'
+
+4. 'She reminded me of Sarah on our team — same kind of sharp, quick thinker.'
+
+5. 'Candidate went to a no-name school but actually gave decent answers.'"
+  context="For each biased note, rewrite it as an observation — what the candidate actually said or did. Remove labels, credentials, comparisons to other people, and vague impressions. Keep the factual content. If you need to infer what the interviewer might have observed, describe what objective evidence could replace the biased note."
+  sectionId="201-S6"
+  rubric="A strong response should: (1) Correctly identify notes 1, 3, 4, and 5 as biased and note 2 as a good observation. (2) For note 1: recognize 'culture fit,' 'energy,' and 'likable' as subjective impressions (similarity/affinity bias) and rewrite with behavioral evidence — what did the candidate say or do that the interviewer is reacting to? (3) For note 2: identify this as already a strong observation — it includes specific data (15% drop, A/B test, 12% recovery, two-week timeline) with no subjective language. (4) For note 3: recognize this as a judgment without evidence (horn effect or anchoring). A good rewrite would describe what actually happened: e.g., 'When asked about system design tradeoffs for the caching layer, candidate described the architecture at a high level but could not explain why they chose Redis over Memcached or discuss failover strategies.' (5) For note 4: identify this as similarity bias — comparing a candidate to an existing employee is not evidence. Rewrite should capture the behaviors that prompted the comparison. (6) For note 5: identify this as credential bias / halo-horn effect in reverse — the school is irrelevant and 'actually' implies surprise based on pedigree. Rewrite should remove all credential references and focus on the answers themselves."
+  placeholder="Go through each note. Label it as biased or objective, identify the bias pattern if applicable, and rewrite biased notes as factual observations."
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S6"
+  quizId="201-S6-Q1"
+  question="You're 5 minutes into an interview and the candidate is nervous, speaking quietly, and giving short answers. You notice yourself thinking 'this person isn't strong enough for the role.' What should you do?"
+  options={[
+    "Trust your instinct — first impressions are usually accurate",
+    "End the interview early to save everyone's time",
+    "Recognize this as first impression bias, give the candidate time to warm up, and evaluate based on the substance of their answers throughout the full interview",
+    "Ask harder questions to test whether they can handle pressure"
+  ]}
+  correctIndex={2}
+  explanation="First impression bias is one of the strongest biases in interviews. Many strong candidates are nervous at the start — this tells you nothing about their capability. Your job is to create conditions where they can demonstrate their best work, then evaluate the evidence from the full interview, not just the first five minutes."
+  incorrectExplanation="Nervousness in the first few minutes tells you almost nothing about a candidate's ability. First impression bias is powerful but unreliable. Give the candidate time to settle in and evaluate based on the behavioral evidence they provide throughout the full conversation."
+/>
+
+<Quiz
+  sectionId="201-S6"
+  quizId="201-S6-Q2"
+  question="An interviewer's debrief notes include: 'The candidate went to Stanford and worked at Google — clearly has strong technical fundamentals. Recommend hire.' What bias pattern is present?"
+  options={[
+    "Recency bias — the interviewer is influenced by the most recent information",
+    "Halo effect — prestigious credentials are creating a positive glow over the entire evaluation without behavioral evidence",
+    "Contrast effect — the interviewer is comparing this candidate to weaker previous candidates",
+    "Confirmation bias — the interviewer is looking for evidence that supports their conclusion"
+  ]}
+  correctIndex={1}
+  explanation="This is a textbook halo effect. Stanford and Google are impressive credentials, but they tell you nothing about this specific candidate's technical fundamentals in this interview. The word 'clearly' is the giveaway — the interviewer is treating the credentials as proof of ability without citing any behavioral evidence from the actual interview."
+  incorrectExplanation="The issue is the halo effect: a single impressive attribute (prestigious credentials) creates a positive glow that replaces actual evaluation. 'Clearly has strong technical fundamentals' is a conclusion based on a resume line, not on anything the candidate demonstrated in the interview."
+/>
+
+<Quiz
+  sectionId="201-S6"
+  quizId="201-S6-Q3"
+  question="You interviewed three candidates today. The first two gave vague, surface-level answers. The third candidate gave a solid answer with reasonable detail and some quantified results. You find yourself thinking 'this one is really strong.' What should you check?"
+  options={[
+    "Nothing — your assessment is based on the evidence in their answers",
+    "Whether your positive impression is genuine signal or the contrast effect making an average answer look exceptional compared to two weak ones",
+    "Whether the first two candidates were actually weaker than you thought",
+    "Whether the third candidate's body language was more confident"
+  ]}
+  correctIndex={1}
+  explanation="The contrast effect is insidious because it feels like genuine evaluation. After two weak candidates, a merely adequate candidate can feel outstanding. The fix: evaluate every candidate against the hiring bar, not against the last person you spoke with. Ask yourself: 'Would I rate this answer the same way if it were the first interview of the day?'"
+  incorrectExplanation="After two weak interviews, you're primed to overvalue the next adequate answer. This is the contrast effect — evaluating relative to recent comparisons rather than against the actual hiring bar. Always check: would this answer impress you if it were the first one you heard today?"
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

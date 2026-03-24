@@ -3,6 +3,214 @@ sidebar_position: 8
 title: "Capstone: Practice Debrief"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
+
 # Capstone: Practice Debrief
 
-*Content coming soon.*
+You've built the complete interviewer toolkit across Workshop 201. Now it's time to use every skill at once — principles-based evaluation, story mapping, probing instincts, note-taking discipline, bias awareness, and debrief writing — on a realistic scenario from start to finish.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## Bringing it all together
+
+Before we dive into the scenario, here's how each skill you've learned feeds into the debrief — the moment where it all matters.
+
+| Workshop 201 Skill | Role in the Debrief |
+|---|---|
+| **Principles as evaluation lenses** (Section 1) | You know *what* to evaluate against — not gut feel, but defined criteria |
+| **Mapping stories to principles** (Section 2) | You can connect a candidate's specific examples to the principles they demonstrate |
+| **Probing and follow-ups** (Section 3) | Your notes reflect depth, not surface-level answers, because you dug deeper during the interview |
+| **Writing great questions** (Section 4) | The interview was structured to generate signal on your assigned principles |
+| **Active listening and note-taking** (Section 5) | You captured behavioral evidence — quotes, data points, decisions — not impressions |
+| **Avoiding bias** (Section 6) | You can spot when notes reflect bias rather than evidence, in your own writing and others' |
+| **The debrief** (Section 7) | You know the structure: evidence first, recommendation last, and how to disagree productively |
+
+The debrief is where everything converges. A great interviewer generates signal. A great debrief participant synthesizes that signal into a clear, evidence-based recommendation.
+
+---
+
+## The scenario
+
+You are on a four-person interview panel for a **Senior Software Engineer** position at a mid-size fintech company. The panel is evaluating candidates against five principles:
+
+| Principle | Definition |
+|---|---|
+| **Customer Obsession** | Starts with the customer and works backwards. Prioritizes user impact over internal convenience. |
+| **Ownership** | Takes responsibility beyond their immediate scope. Thinks long-term, not just about their own deliverables. |
+| **Bias for Action** | Moves quickly on decisions when appropriate. Distinguishes reversible from irreversible decisions. |
+| **Dive Deep** | Operates at all levels of detail. Audits when something doesn't add up. |
+| **Earn Trust** | Communicates openly. Admits mistakes. Benchmarks against the best, not just their peers. |
+
+### The candidate
+
+**Priya Anand** — 7 years of experience. Currently a backend engineer at a logistics company. Previously worked at an e-commerce startup. Her resume highlights a payment processing migration, a team mentoring initiative, and leading an incident response overhaul.
+
+### The interview question
+
+Interviewer 1 (you observed this interview) asked:
+
+> "Tell me about a time you identified a significant problem that others had missed and drove the solution."
+
+This question was designed to evaluate **Dive Deep** and **Ownership**.
+
+### Priya's answer
+
+> "About 18 months ago, I noticed that our payment reconciliation system was silently dropping transactions. Not failing — dropping. The system would process a payment, send the confirmation to the customer, but about 0.3% of the time, the ledger entry never made it to our accounting database. Nobody had flagged it because our monitoring only checked for *failed* transactions, not for *missing* ones. The discrepancy was only showing up as a small variance in monthly finance reconciliation, and the finance team assumed it was rounding differences.
+>
+> I found it because I was debugging an unrelated latency issue and noticed that our message queue consumer was occasionally timing out on large batch writes. When a timeout happened, the message was marked as processed — our retry logic had a bug where it checked for explicit failures but treated timeouts as successes. I pulled three months of logs and confirmed that we'd silently dropped about 4,200 transactions totaling roughly $380,000 in unreconciled payments.
+>
+> I brought this to my manager and the finance lead with the data. I proposed three options: a quick patch to fix the retry logic, a medium-term solution to add an end-to-end reconciliation check, and a longer-term redesign of the message queue consumer to use idempotent writes. My manager wanted to go with just the quick patch, but I pushed back — the retry bug was a symptom, and I was worried we had similar patterns elsewhere in the pipeline. We agreed on implementing the patch immediately plus the reconciliation check within the same sprint. I built both. The reconciliation check caught two additional inconsistencies in its first week that we hadn't known about. Over the next quarter, I also drove the idempotent write redesign, which I did in collaboration with the platform team. The final result was zero dropped transactions in the six months since, and the reconciliation check became a standard part of our pipeline monitoring. Finance recovered the $380,000 in unreconciled payments through a batch correction process I helped them design."
+
+### Interviewer 1's notes
+
+**Interviewer 1** — assigned to evaluate **Dive Deep** and **Ownership**. Here are the notes they wrote during the interview:
+
+> - Candidate found a payment reconciliation bug — 0.3% of transactions silently dropped
+> - Timeout bug in message queue consumer — retry logic treated timeouts as successes
+> - Pulled 3 months of logs, found 4,200 dropped transactions, ~$380K impact
+> - Proposed 3 options: quick patch, reconciliation check, idempotent write redesign
+> - Pushed back on manager who wanted patch-only — argued the root cause was deeper
+> - Built the patch + reconciliation check in one sprint
+> - Reconciliation check caught 2 more issues in first week
+> - Drove the longer-term redesign over next quarter with platform team
+> - Zero dropped transactions in 6 months since
+> - **Really impressive candidate — she went to Stanford and clearly has strong technical fundamentals**
+> - **She reminded me of our best engineer on the platform team — same energy**
+> - Overall: strong on both Dive Deep and Ownership. Recommend hire.
+
+### Interviewer 2's notes
+
+**Interviewer 2** — assigned to evaluate **Customer Obsession** and **Earn Trust**. They asked a different question: *"Describe a time you had to earn the trust of a skeptical stakeholder."* Here are their notes:
+
+> - Candidate described onboarding as a new team member and inheriting a legacy notification service that the product team had lost confidence in
+> - Product manager had stopped filing bugs because "nothing ever gets fixed"
+> - Candidate set up a weekly 15-minute sync with the PM to review open issues and share progress
+> - Admitted in the first meeting that the system had real problems and she couldn't fix them all at once, but committed to a prioritized plan
+> - Over 3 months: fixed the top 5 reliability issues, reduced notification delivery failures from 8% to 0.4%
+> - PM started filing bugs again and publicly praised the turnaround at a team all-hands
+> - Candidate mentioned she also set up a customer-facing status page for notification delivery so external users could see system health
+> - **No evidence of Customer Obsession — the answer was mostly about internal stakeholder management, not end customers**
+> - **She seemed nervous at the start of the interview — took a while to warm up**
+> - Overall: moderate on Earn Trust, weak on Customer Obsession. Leaning no-hire.
+
+---
+
+## Your task
+
+You observed both interviews and now have both sets of notes in front of you. The debrief is in 30 minutes. You need to:
+
+1. **Evaluate Priya against each of the five principles** using evidence from both interviewers' notes
+2. **Identify any bias** in either interviewer's notes that should not influence the debrief
+3. **Write your recommendation** — hire or no-hire — supported by specific evidence
+
+Before you write, consider these questions:
+
+- Which principles have strong behavioral evidence? Which have gaps?
+- Are there notes that reflect bias patterns rather than behavioral evidence? What type of bias?
+- Does Interviewer 2's conclusion about Customer Obsession hold up when you look at the actual evidence in Priya's answer?
+- How would you weigh the evidence across both interviews to form a fair overall assessment?
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Write your debrief evaluation
+
+Write a complete debrief evaluation for Priya. Your write-up should cover three parts:
+
+**Part 1 — Principle-by-principle assessment.** For each of the five principles (Customer Obsession, Ownership, Bias for Action, Dive Deep, Earn Trust), state whether you see strong evidence, some evidence, or no evidence. Cite specific behavioral examples from the interview notes.
+
+**Part 2 — Bias check.** Identify any notes from either interviewer that reflect bias rather than behavioral evidence. Name the bias pattern and explain why it should be excluded from the evaluation.
+
+**Part 3 — Your recommendation.** State your hire or no-hire recommendation, supported by the evidence you cited above. Address any gaps honestly — where would you want more data?
+
+<WritingExercise
+  question="Write your complete debrief evaluation for Priya, covering all three parts: (1) principle-by-principle assessment with evidence, (2) bias identification in the interviewer notes, and (3) your hire/no-hire recommendation with supporting reasoning."
+  context="You have notes from two interviewers. Interviewer 1 evaluated Dive Deep and Ownership based on a payment reconciliation story. Interviewer 2 evaluated Customer Obsession and Earn Trust based on a legacy system turnaround story. The five principles are: Customer Obsession, Ownership, Bias for Action, Dive Deep, and Earn Trust. Look carefully at the actual behavioral evidence in the notes, and separately at any statements that reflect interviewer bias rather than candidate behavior."
+  sectionId="201-S8"
+  rubric="A strong response should: (1) Address all five principles individually, citing specific evidence from the interview notes for each — not vague impressions but actual behaviors (e.g., 'pulled 3 months of logs' as evidence of Dive Deep). (2) Correctly identify at least 3 bias patterns in the interviewer notes: Interviewer 1's Stanford/credential reference (authority bias/halo effect), Interviewer 1's comparison to existing employee (similarity bias), and Interviewer 2's comment about nervousness (first impression bias). The response should also catch that Interviewer 2 may have missed Customer Obsession evidence — the candidate created a customer-facing status page, which IS customer obsession. (3) Provide a clear hire/no-hire recommendation that follows logically from the evidence cited, not from gut feel. The recommendation should acknowledge evidence gaps honestly (e.g., Bias for Action had limited direct evidence). Bonus: The response distinguishes between principles with strong direct evidence versus principles with indirect/inferred evidence. Bonus: The response notes that Earn Trust has strong evidence despite Interviewer 2's lukewarm rating once the bias-influenced observations are removed."
+  placeholder="Part 1 — Principle-by-principle assessment:
+
+Customer Obsession: [your assessment with evidence]
+Ownership: [your assessment with evidence]
+Bias for Action: [your assessment with evidence]
+Dive Deep: [your assessment with evidence]
+Earn Trust: [your assessment with evidence]
+
+Part 2 — Bias check:
+[Identify biased notes and name the bias patterns]
+
+Part 3 — Recommendation:
+[Your hire/no-hire recommendation with supporting evidence and honest gaps]"
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S8"
+  quizId="201-S8-Q1"
+  question="Interviewer 2 concluded there was 'no evidence of Customer Obsession' in Priya's answer. Which piece of evidence in their own notes contradicts this conclusion?"
+  options={[
+    "Priya fixed the top 5 reliability issues in the notification service",
+    "Priya set up a customer-facing status page so external users could see system health",
+    "The PM started filing bugs again after Priya's improvements",
+    "Priya reduced notification delivery failures from 8% to 0.4%"
+  ]}
+  correctIndex={1}
+  explanation="Creating a customer-facing status page is a direct example of Customer Obsession — Priya thought about the end user's experience, not just the internal stakeholder relationship. Interviewer 2 recorded this evidence but missed its significance when writing their assessment. This is a common debrief mistake: collecting good data but failing to map it to the right principle."
+  incorrectExplanation="While fixing reliability issues and reducing failures show strong engineering, the most direct evidence of Customer Obsession is the customer-facing status page — Priya proactively considered the external user's need for transparency, which is exactly what Customer Obsession means."
+/>
+
+<Quiz
+  sectionId="201-S8"
+  quizId="201-S8-Q2"
+  question="Interviewer 1 wrote: 'Really impressive candidate — she went to Stanford and clearly has strong technical fundamentals.' What bias pattern does this reflect, and why is it problematic?"
+  options={[
+    "Recency bias — the interviewer is overly influenced by the most recent information",
+    "Halo effect / authority bias — a prestigious credential is influencing the overall evaluation beyond what the interview evidence supports",
+    "Contrast effect — the interviewer is comparing Priya to a weaker previous candidate",
+    "Leniency bias — the interviewer is being too generous with their ratings overall"
+  ]}
+  correctIndex={1}
+  explanation="Referencing Stanford in an evaluation note is a textbook halo effect: a single impressive attribute (prestigious university) creates a positive glow that colors the entire assessment. The candidate's technical fundamentals should be evaluated based on what she demonstrated in her answers, not where she went to school. This note should be flagged and excluded from the debrief discussion."
+  incorrectExplanation="This is halo effect combined with authority bias. The interviewer is letting a prestigious credential (Stanford) influence their evaluation of the candidate's technical ability, rather than basing that assessment on the behavioral evidence from the interview itself."
+/>
+
+<Quiz
+  sectionId="201-S8"
+  quizId="201-S8-Q3"
+  question="You're in the debrief and Interviewer 2 says: 'I'm leaning no-hire. She seemed nervous and I didn't see Customer Obsession.' Based on everything you've learned in Workshop 201, what is the best response?"
+  options={[
+    "Agree with the no-hire recommendation to avoid conflict — they spent more time with the candidate than you did",
+    "Disagree and argue for a hire based on your overall positive impression of Priya",
+    "Point out the customer-facing status page as evidence of Customer Obsession, flag the nervousness comment as first impression bias, and ask the group to evaluate based on behavioral evidence only",
+    "Suggest adding another interview round to get more data on Customer Obsession"
+  ]}
+  correctIndex={2}
+  explanation="A strong debrief participant does three things here: (1) redirects to evidence by citing the specific example Interviewer 2 recorded but didn't map correctly, (2) names the bias pattern — commenting on nervousness is first impression bias that doesn't reflect the candidate's ability, and (3) keeps the conversation grounded in behavioral data. This is the full toolkit from Workshop 201 in action."
+  incorrectExplanation="The best response uses evidence, not deference or general impressions. Point to the specific behavioral example (customer-facing status page) that maps to Customer Obsession, name the bias pattern in the nervousness comment, and steer the debrief back to evidence-based evaluation. That's every Workshop 201 skill working together."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>
+
+---
+
+## Congratulations — you've completed Workshop 201
+
+You started this workshop by identifying your organization's guiding principles. You learned to map candidate stories to those principles, probe for deeper signal, write questions that generate the evidence you need, take notes that capture behavior instead of impressions, recognize and resist bias patterns, and run a debrief that leads to fair, evidence-based decisions.
+
+In this capstone, you put all of those skills together on a single realistic scenario — and that's exactly what a real debrief demands. Every skill matters. Miss the bias in the notes, and the wrong data influences the decision. Miss the principle mapping, and strong evidence gets overlooked. Skip the probing, and you never get the depth you need to evaluate.
+
+**You now have the skills to run a structured, principles-based interview and participate in an effective debrief.** That's a meaningful upgrade from where most interviewers operate — and it makes a real difference in hiring outcomes.
+
+### What's next?
+
+[**Workshop 301**](/docs/workshop-301) covers advanced topics: the full interview loop, frameworks beyond Amazon, technical interview integration, handling difficult scenarios, and building a story bank. When you're ready to go deeper, that's where you'll find it.
+
+For now, the best thing you can do is practice. Run your next interview with principles assigned, take behavioral notes, and approach the debrief with evidence first. Every interview you conduct is a chance to sharpen these skills.

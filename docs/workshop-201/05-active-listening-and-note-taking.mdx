@@ -3,6 +3,328 @@ sidebar_position: 5
 title: "Active Listening & Note-Taking"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
+import CandidateAnswer from '@site/src/components/CandidateAnswer';
+import NoteExamples from '@site/src/components/NoteExamples';
+import FollowUpPicker from '@site/src/components/FollowUpPicker';
+
 # Active Listening & Note-Taking
 
-*Content coming soon.*
+Your notes are the evidence. If you don't capture what the candidate *actually said*, the debrief becomes a game of telephone. This section teaches you to **record the facts, not your feelings** — and to pick the right follow-up in real time.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## Two jobs at once
+
+During an interview, you're doing two things simultaneously:
+
+1. **Listening** — following the candidate's story, tracking which principles are surfacing, spotting places to probe
+2. **Recording** — writing notes that capture what was said, not what you think about what was said
+
+Most interviewers get the second part wrong. They write verdicts instead of evidence.
+
+### Record the session, not the sentiment
+
+| Don't write this | Write this instead |
+|---|---|
+| "Great answer about ownership" | "Took on migration project outside her team's scope, rewrote data layer over weekend, got other team's lead to review Monday" |
+| "Seemed nervous, not confident" | "Paused 10-15 sec before answering, asked to come back to this question later" |
+| "Strong collaboration skills" | "Reached out to 3 teams, set up joint design review, proposed API contract compromise that split work by team strengths" |
+| "Didn't demonstrate depth" | "Described the outcome but couldn't explain why they chose approach A over B when asked" |
+| "Culture fit" | (Never write this — it's not evidence) |
+
+### Why this matters
+
+Your notes serve **two audiences**:
+
+1. **Future you** — in 30 minutes, during the debrief, you'll need to recall specific details from a 45-minute conversation. Your memory will fail you. Your notes won't.
+2. **The debrief panel** — other interviewers will rely on your notes to understand what you heard. If your notes say "strong answer," they learn nothing. If your notes say *what the candidate actually said and did*, the panel can evaluate independently.
+
+### The note-taking framework
+
+Keep it simple. For each question, capture:
+
+- **S/T** — the situation and task in 1-2 phrases (enough to set context)
+- **A** — the specific actions the candidate took (this is where most signal lives)
+- **R** — the result, ideally with metrics
+- **Flags** — anything that needs follow-up: `? follow up`, `need more info`, `look this up later`
+
+**Abbreviations are fine.** Misspellings don't matter. Speed matters. You can clean up your notes in the 5 minutes between the interview ending and the debrief starting. The goal is to capture enough that you can reconstruct the answer later.
+
+### Active listening while note-taking
+
+The biggest mistake: **writing with your head down and missing what the candidate is saying.**
+
+Strategies that work:
+- **Shorthand over sentences** — write "took on migration, rewrote data layer, weekend, other team's lead reviewed Mon" not complete sentences
+- **Listen for the Action** — the Situation and Task are context; the Action is where the signal is. If you have to choose what to capture, capture the actions
+- **Note your probing instinct** — when something catches your ear, jot a `?` in the margin. Come back to it after the candidate finishes the current answer
+- **Separate facts from flags** — use a simple marker (like `→` for facts and `?` for things to probe) to keep observation and evaluation apart
+
+### Picking the right follow-up
+
+While you're listening, you should be **preparing follow-up questions** in advance. Then, as the candidate speaks, match their answer to your prepared follow-ups:
+
+- **Did they use "we" a lot?** → follow up on individual contribution
+- **Did they mention a decision but not the reasoning?** → follow up on tradeoffs
+- **Did the story sound too clean?** → follow up on what went wrong
+- **Did they skip the result?** → follow up on measurable outcomes
+
+The best follow-up is the one that generates the most **new signal** — signal you don't already have from their initial answer.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Scenario 1: Priya — Ownership
+
+**The Candidate:** Priya is a senior software engineer with 6 years of experience. She's been at her current company for 3 years, working on the payments platform. She's interviewing for a senior role on your infrastructure team.
+
+**Your Question:** *"Tell me about a time you took on something important that wasn't part of your job description."*
+
+---
+
+### Step 1: Listen and take notes
+
+Listen to Priya's answer. While you listen (or read), **take notes** as if you were the actual interviewer. Remember: capture facts and data points, not your verdict.
+
+<CandidateAnswer
+  candidateName="Priya"
+  audioFile="Priya-senior_software_engineer.mp3"
+  transcript={`So about a year ago, I noticed that our payments service was having these intermittent failures — like, transactions would fail but nobody would know until a customer complained. The monitoring was really basic, just uptime checks. This wasn't my team's responsibility at all — the SRE team owned monitoring — but they were stretched thin working on a migration.
+
+I spent a couple evenings looking at our error logs and realized we had about 12 different failure modes that weren't being tracked. I put together a proposal for an alerting system that would catch these — categorized by severity, with different response playbooks for each one.
+
+I got buy-in from the SRE lead by showing them the data — we'd had 47 silent failures in the previous month that only got caught through customer complaints. They gave me access to their monitoring stack and I built out the alerts over about two weeks, working on it between my regular sprint work.
+
+The result was pretty immediate — our mean time to detection dropped from about 45 minutes to under 5 minutes for critical payment failures. And the SRE team actually adopted the pattern I built for three other services after that.`}
+/>
+
+<WritingExercise
+  question="Take notes on Priya's answer as if you were the interviewer."
+  context="Your job is to capture the STAR components: Situation, Task, Action, Result. Record key data points, specific actions, and measurements. Abbreviations and shorthand are fine. Flag missing STAR components or things you'd follow up on."
+  sectionId="201-S5"
+  rubric="Evaluate whether the notes capture the key STAR components from Priya's answer. Be forgiving of abbreviations, misspellings, and shorthand — those are expected in real-time notes. What matters is whether the essential data points are present. SITUATION: payments service had intermittent failures, monitoring was basic (uptime checks only), SRE team owned monitoring but stretched thin on migration, customers were the only detection mechanism. TASK: not explicitly her job — SRE team owned monitoring. This is itself a data point worth noting. ACTION: analyzed error logs (on own time), identified 12 untracked failure modes, built proposal with severity categories and playbooks, showed SRE lead data (47 silent failures/month), got access to monitoring stack, built alerts over ~2 weeks alongside sprint work. RESULT: MTTD dropped from 45 min to under 5 min, SRE adopted pattern for 3 other services. KEY DATA POINTS that strong notes should capture: 12 failure modes, 47 silent failures/month, 2 weeks build time, MTTD 45min to <5min, 3 other services adopted pattern. Notes should NOT contain evaluative verdicts like 'great answer' or 'strong ownership' or 'would hire.' It IS fine to include process markers like '? follow up' or 'need more info' or 'Task was unclear — probe.' If notes are missing a STAR component, that's useful feedback — tell them which component is missing and suggest a follow-up question to get it."
+  placeholder="Write your interview notes here. Try to capture each STAR component. Use shorthand — speed matters. Flag gaps with '?' or 'follow up'."
+/>
+
+### Step 2: Compare your notes
+
+Click through these three note-taking styles. How do yours compare?
+
+<NoteExamples examples={[
+  {
+    label: "Good Factual Notes",
+    style: "good",
+    content: `S: Payments svc — intermittent failures, customers only way to find out. Monitoring = uptime checks only. SRE owns monitoring, stretched on migration.
+A: Analyzed error logs on own time → found 12 failure modes untracked. Built proposal w/ severity categories + response playbooks. Showed SRE lead data: 47 silent failures prev month (found via customer complaints). Got access to monitoring stack. Built alerts ~2 wks alongside sprint work.
+R: MTTD 45min → <5min for critical payment failures. SRE adopted pattern for 3 other services.
+? "couple evenings" — personal time? was this expected or overtime?
+? what were the 12 failure modes specifically?
+? how did sprint work hold up during those 2 weeks?
+? who else was involved or was this truly solo?`,
+    explanation: "These notes capture specific actions, data points, and results without any judgment. The '?' flags are great — they're process markers for follow-up, not verdicts. Another interviewer could read these notes and form their own assessment."
+  },
+  {
+    label: "Verdict-Heavy Notes",
+    style: "bad",
+    content: `Strong ownership answer. Clearly goes above and beyond.
+Impressive initiative — took on monitoring without being asked.
+Great collaboration with SRE team. Shows leadership.
+Would hire. Reminds me of our best senior engineer.
+Proactive problem-solver. Culture add.`,
+    explanation: "These notes are useless in a debrief. They tell the panel what YOU think, not what the candidate SAID. Another interviewer can't evaluate independently from these. 'Reminds me of our best engineer' is similarity bias in writing. 'Culture add' is not evidence."
+  },
+  {
+    label: "Full Transcript",
+    style: "transcript",
+    content: `So about a year ago, I noticed that our payments service was having these intermittent failures — like, transactions would fail but nobody would know until a customer complained. The monitoring was really basic, just uptime checks. This wasn't my team's responsibility at all — the SRE team owned monitoring — but they were stretched thin working on a migration. I spent a couple evenings looking at our error logs and realized we had about 12 different failure modes that weren't being tracked. I put together a proposal for an alerting system...`,
+    explanation: "A transcript captures everything but highlights nothing. In a debrief, you can't quickly find the key data points. You'll be flipping through pages while other interviewers wait. Notes should distill, not transcribe."
+  }
+]} />
+
+### Step 3: Pick your follow-up
+
+Now review your notes through the STAR lens. Which component is weakest or missing? The best follow-up targets the gap.
+
+In Priya's answer, the **Situation** is clear (payment failures, no monitoring), the **Action** is detailed (error log analysis, proposal, building alerts), and the **Result** has metrics (MTTD 45min → &lt;5min). But what about the **Task**? She said it "wasn't my team's responsibility" — so what made her take it on? The Task is implicit, and probing it would reveal her decision-making process.
+
+<FollowUpPicker
+  scenarioId="201-S5-FU1"
+  followUps={[
+    {
+      label: "How did your manager react when you took this on?",
+      explanation: "This asks about someone else's reaction, not Priya's decision-making. You'd learn about the manager, not the candidate. It doesn't fill a STAR gap.",
+      isCorrect: false,
+    },
+    {
+      label: "You said this wasn't your team's responsibility. What made you decide to take it on yourself rather than escalating it or waiting for SRE to get to it?",
+      explanation: "This is the strongest follow-up. Priya's Task is implicit — she never explained WHY she took this on. This question fills the STAR gap by probing her decision-making: Was it a conscious choice? Did she weigh the tradeoffs of spending time on someone else's problem? This reveals ownership thinking, not just ownership action.",
+      isCorrect: true,
+    },
+    {
+      label: "Was the alerting system successful?",
+      explanation: "She already gave you the Result with specific metrics — MTTD dropped from 45 min to under 5 min, SRE adopted the pattern for 3 other services. This is a yes/no question that repeats data you already have.",
+      isCorrect: false,
+    },
+    {
+      label: "What metrics did you use to measure the success of the alerting system?",
+      explanation: "The Result already includes metrics (MTTD, adoption by SRE). While you could always get more metrics, the Result component is the strongest part of this answer. Your follow-up should target the weakest component, not the strongest.",
+      isCorrect: false,
+    },
+  ]}
+/>
+
+---
+
+## Scenario 2: Marcus — Collaboration
+
+**The Candidate:** Marcus is a product manager with 4 years of experience, currently at a mid-size fintech company. He's interviewing for a senior PM role where he'd work across engineering, design, and data science teams.
+
+**Your Question:** *"Tell me about a time you needed to get buy-in from people who didn't report to you."*
+
+---
+
+### Step 1: Listen and take notes
+
+<CandidateAnswer
+  candidateName="Marcus"
+  audioFile="Marcus-Product_Manager.mp3"
+  transcript={`This was about eight months ago. I wanted to build a recommendation engine for our investment products, but it required coordination across three teams — engineering for the backend, data science for the models, and design for the UX.
+
+The challenge was that none of these teams reported to me, and they all had their own roadmap priorities. The data science team in particular was skeptical — they'd been burned before by PM-driven projects that oversimplified the ML complexity.
+
+What I did was, instead of coming in with a finished spec, I set up individual working sessions with each team lead first. I asked them what they thought the biggest opportunity was and what constraints they were working with. With engineering, the concern was latency — they didn't want anything that would slow down page loads. With data science, it was about model accuracy and having enough training data. With design, it was about not making the product feel pushy.
+
+I synthesized all of their input into a phased approach. Phase one was a simple rules-based system that engineering could ship quickly, while data science built the ML model in parallel. This way we could validate the UX and gather training data at the same time.
+
+I presented the phased plan back to each team individually before the joint meeting, so nobody was surprised. When we did the group session, most of the concerns had already been addressed. The data science lead actually said it was the first PM-driven project where she felt her team's constraints were taken seriously.
+
+We launched phase one in six weeks and the ML-powered version two months later. Conversion on recommended products went up 23%.`}
+/>
+
+<WritingExercise
+  question="Take notes on Marcus's answer as if you were the interviewer."
+  context="Capture the STAR components: Situation, Task, Action, Result. Record data points, specific actions, and measurements. Flag any missing STAR components or areas to probe."
+  sectionId="201-S5-M"
+  rubric="Evaluate whether the notes capture the key STAR components from Marcus's answer. Be forgiving of abbreviations, misspellings, and shorthand. What matters is whether the essential data points are present. SITUATION: wanted to build recommendation engine for investment products, required coordination across 3 teams (engineering, data science, design), none reported to him, all had own roadmap priorities, DS team skeptical from past bad PM experiences. TASK: get buy-in and alignment from 3 independent teams to build the feature. ACTION: set up 1:1 working sessions with each team lead (not a finished spec), asked about opportunities and constraints (eng=latency, DS=model accuracy + training data, design=not pushy), synthesized into phased approach (phase 1 rules-based, phase 2 ML in parallel), presented plan back to each team individually BEFORE joint meeting (no surprises strategy). RESULT: phase 1 shipped in 6 weeks, ML version 2 months later, conversion +23% on recommended products, DS lead said 'first PM project where constraints taken seriously.' KEY DATA POINTS: 3 teams, 6 weeks for phase 1, 2 months for phase 2, 23% conversion increase, DS lead quote. Notes should NOT contain evaluative verdicts. It IS fine to include process markers like '? follow up' or 'need more info.' If notes are missing a STAR component, point out which one and suggest a follow-up question. For example, the Task in this story is somewhat implicit — notes that call this out show good STAR awareness."
+  placeholder="Write your interview notes here. Capture each STAR component. Use shorthand — speed matters. Flag gaps with '?' or 'follow up'."
+/>
+
+### Step 2: Compare your notes
+
+<NoteExamples examples={[
+  {
+    label: "Good Factual Notes",
+    style: "good",
+    content: `S: Wanted to build recommendation engine for investment products. Required 3 teams (eng, DS, design) — none report to him. All had own roadmap priorities. DS team skeptical — burned by past PM projects that oversimplified ML.
+A: Set up 1:1 working sessions w/ each team lead (not a finished spec). Asked about opportunities + constraints. Eng concern = latency. DS = model accuracy + training data. Design = not pushy. Synthesized into phased approach: phase 1 = rules-based (eng ships fast), DS builds ML model in parallel → validate UX + gather training data simultaneously. Presented plan back to each team individually BEFORE joint meeting (no surprises).
+R: Phase 1 shipped 6 wks. ML version 2 months later. Conversion +23% on recommended products. DS lead: "first PM project where constraints taken seriously."
+? what specifically were DS's past bad experiences?
+? any conflicting constraints between teams he had to trade off?
+? what did phased approach sacrifice vs. doing ML from day 1?
+follow up: whose idea was the phased approach — his alone or collaborative?`,
+    explanation: "Data-rich, captures the specific strategy (1:1 sessions, phased approach, pre-meeting alignment), includes the DS lead's quote as evidence, and flags smart probing opportunities. Another interviewer can assess collaboration quality from these notes alone."
+  },
+  {
+    label: "Verdict-Heavy Notes",
+    style: "bad",
+    content: `Excellent collaboration skills. Very structured thinker.
+Smart approach to stakeholder management.
+Would be great on our cross-functional projects.
+Clear leadership potential. Seems like a natural PM.
+Strong communicator — articulate and organized.`,
+    explanation: "Zero data. What did Marcus actually DO? These notes tell the debrief what you felt, not what happened. 'Seems like a natural PM' is gut feeling, not evidence. Useless for independent evaluation."
+  },
+  {
+    label: "Full Transcript",
+    style: "transcript",
+    content: `This was about eight months ago. I wanted to build a recommendation engine for our investment products, but it required coordination across three teams — engineering for the backend, data science for the models, and design for the UX. The challenge was that none of these teams reported to me, and they all had their own roadmap priorities. The data science team in particular was skeptical — they'd been burned before by PM-driven projects that oversimplified the ML complexity. What I did was, instead of coming in with a finished spec...`,
+    explanation: "Too much. In a debrief you'll be scanning through paragraphs trying to find the key actions. Notes should extract signal, not record everything."
+  }
+]} />
+
+### Step 3: Pick your follow-up
+
+Review your notes through the STAR lens again. Marcus's **Situation** is clear (3 teams, own roadmap priorities, DS skepticism). The **Result** has metrics (6 weeks, 23% conversion). But look at the **Action** — he describes his strategy at a high level ("set up working sessions," "synthesized their input") without specifics on what happened when constraints conflicted. The Action needs more depth.
+
+<FollowUpPicker
+  scenarioId="201-S5-FU2"
+  followUps={[
+    {
+      label: "You said the data science team had concerns about ML complexity. What specifically were they worried about, and how did your phased approach address those objections?",
+      explanation: "This is the strongest follow-up. It targets a gap in the Action — Marcus described his strategy broadly but the DS team's concerns are where the real collaboration challenge lived. If he can articulate the specific technical objections and explain how his phased approach addressed each one, that's deep Action evidence. If he can't, you know the story was more surface-level than it sounded.",
+      isCorrect: true,
+    },
+    {
+      label: "How did you celebrate the launch with the teams?",
+      explanation: "This doesn't address any STAR gap. The celebration is outside the scope of the story and doesn't deepen your understanding of the Action or any other STAR component.",
+      isCorrect: false,
+    },
+    {
+      label: "What was the revenue impact of the recommendation engine?",
+      explanation: "Marcus already gave you the Result — 23% conversion increase. The Result is the strongest STAR component in this answer. Follow up on the weakest component, not the strongest.",
+      isCorrect: false,
+    },
+    {
+      label: "Would you say you're generally good at influencing without authority?",
+      explanation: "This is a hypothetical question, not a behavioral one. It doesn't probe any STAR component. The candidate will say yes, and you'll learn nothing new.",
+      isCorrect: false,
+    },
+  ]}
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="201-S5"
+  quizId="201-S5-Q1"
+  question="During the debrief, you look at your notes and they say: 'Impressive answer, clearly a strong owner, would hire.' What's wrong with these notes?"
+  options={[
+    "They're too short",
+    "They record your verdict, not the candidate's evidence — the panel can't evaluate independently",
+    "They should include a numerical score",
+    "Nothing — this is a clear recommendation"
+  ]}
+  correctIndex={1}
+  explanation="Your notes should capture what the candidate SAID — their actions, decisions, and results. 'Strong owner' is your interpretation. The debrief panel needs facts to make their own assessment. If your notes say 'took on monitoring project outside her scope, identified 12 failure modes, built alerting in 2 weeks,' the panel can evaluate independently."
+  incorrectExplanation="The problem isn't length or format — it's that these notes are verdicts, not evidence. The debrief panel can't evaluate the candidate based on your opinion. They need the facts of what was actually said."
+/>
+
+<Quiz
+  sectionId="201-S5"
+  quizId="201-S5-Q2"
+  question="A candidate gives a 3-minute answer and you're still writing notes from the previous question. What should you do?"
+  options={[
+    "Keep writing — your notes from the previous answer are more important",
+    "Stop writing, listen actively to the current answer, and jot a brief note to revisit the previous answer later",
+    "Ask the candidate to repeat their answer",
+    "Write faster"
+  ]}
+  correctIndex={1}
+  explanation="The current answer is happening NOW — you can't get it back. Your notes from the previous answer can be fleshed out in the 5 minutes after the interview. If you're writing while they're talking, you're missing signal in real time."
+  incorrectExplanation="You can reconstruct previous notes from memory, but you can't reconstruct what you didn't hear. Stop writing, listen to the current answer, and use the post-interview buffer to fill in gaps."
+/>
+
+<Quiz
+  sectionId="201-S5"
+  quizId="201-S5-Q3"
+  question="A candidate's answer has a clear Situation, detailed Actions, but their Result was simply 'it was successful.' What is the best follow-up?"
+  options={[
+    "Can you tell me more about the project?",
+    "What metrics did you use to measure success, and what were the results?",
+    "Was your manager happy with the outcome?",
+    "What would you do differently next time?"
+  ]}
+  correctIndex={1}
+  explanation="The Result is the missing STAR component. 'It was successful' is not evidence — it's a verdict. The best follow-up directly targets the gap: ask for specific metrics and measurable outcomes. This gives you concrete data for the debrief instead of a vague claim."
+  incorrectExplanation="When a STAR component is weak or missing, the best follow-up targets that specific gap. The Result here is vague ('successful') — you need metrics and measurable outcomes. Asking about it directly is more productive than broadening the conversation or asking about other people's reactions."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

@@ -25,7 +25,7 @@ export const SECTIONS: SectionMeta[] = [
   {id: '201-S2', title: 'Mapping Stories to Principles', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S3', title: 'Probing & Follow-ups', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S4', title: 'Writing Great Questions', workshop: '201', quizCount: 3, maxXP: 80},
-  {id: '201-S5', title: 'Active Listening', workshop: '201', quizCount: 3, maxXP: 80},
+  {id: '201-S5', title: 'Active Listening & Note-Taking', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S6', title: 'Avoiding Bias', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S7', title: 'The Debrief', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S8', title: 'Capstone: Practice Debrief', workshop: '201', quizCount: 3, maxXP: 80},
