@@ -15,7 +15,8 @@ interface AnalysisResult {
 interface AIFeedback {
   passed: boolean;
   score: number;
-  feedback: string;
+  great: string;
+  improvement: string;
 }
 
 interface WritingExerciseProps {
@@ -485,54 +486,95 @@ export default function WritingExercise({question, context, sectionId, rubric, p
       {/* AI Feedback results */}
       {aiFeedback && !isRevising && (
         <div style={{marginTop: '0.5rem'}}>
+          {/* Score header */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1rem',
-              padding: '1rem',
-              borderRadius: 'var(--signal-radius-sm)',
-              background: aiFeedback.passed
-                ? 'rgba(43, 207, 206, 0.08)'
-                : 'rgba(236, 77, 37, 0.08)',
-              borderLeft: `4px solid ${aiFeedback.passed ? 'var(--signal-teal)' : 'var(--signal-ember)'}`,
+              gap: '0.75rem',
               marginBottom: '1rem',
             }}
           >
-            <div>
+            <span
+              style={{
+                fontFamily: 'var(--ifm-heading-font-family)',
+                fontWeight: 700,
+                fontSize: '1rem',
+                color: aiFeedback.passed ? 'var(--signal-teal)' : 'var(--signal-ember)',
+              }}
+            >
+              {aiFeedback.passed ? 'Strong Signal' : 'Keep Going'}
+            </span>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--signal-slate)',
+              }}
+            >
+              Score: {aiFeedback.score}/100
+            </span>
+          </div>
+
+          {/* What's great */}
+          {aiFeedback.great && (
+            <div
+              style={{
+                padding: '0.75rem 1rem',
+                marginBottom: '0.5rem',
+                borderRadius: 'var(--signal-radius-sm)',
+                background: 'rgba(43, 207, 206, 0.06)',
+                borderLeft: '4px solid var(--signal-teal)',
+              }}
+            >
               <div
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
+                  fontFamily: 'var(--ifm-heading-font-family)',
+                  fontWeight: 700,
+                  fontSize: '0.8rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  color: 'var(--signal-teal)',
                   marginBottom: '0.35rem',
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--ifm-heading-font-family)',
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    color: aiFeedback.passed ? 'var(--signal-teal)' : 'var(--signal-ember)',
-                  }}
-                >
-                  {aiFeedback.passed ? 'Strong Signal' : 'Developing'}
-                </span>
-                <span
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    color: 'var(--signal-slate)',
-                  }}
-                >
-                  Score: {aiFeedback.score}/100
-                </span>
+                What's great
               </div>
-              <p style={{fontSize: '0.85rem', margin: '0.25rem 0 0', lineHeight: 1.6}}>
-                {aiFeedback.feedback}
+              <p style={{fontSize: '0.85rem', margin: 0, lineHeight: 1.6, whiteSpace: 'pre-wrap'}}>
+                {aiFeedback.great}
               </p>
             </div>
-          </div>
+          )}
+
+          {/* Improvement ideas */}
+          {aiFeedback.improvement && (
+            <div
+              style={{
+                padding: '0.75rem 1rem',
+                marginBottom: '0.5rem',
+                borderRadius: 'var(--signal-radius-sm)',
+                background: 'rgba(147, 149, 153, 0.06)',
+                borderLeft: '4px solid var(--signal-slate)',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--ifm-heading-font-family)',
+                  fontWeight: 700,
+                  fontSize: '0.8rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  color: 'var(--signal-slate)',
+                  marginBottom: '0.35rem',
+                }}
+              >
+                Improvement ideas
+              </div>
+              <p style={{fontSize: '0.85rem', margin: 0, lineHeight: 1.6, whiteSpace: 'pre-wrap'}}>
+                {aiFeedback.improvement}
+              </p>
+            </div>
+          )}
 
           {/* Your submitted answer */}
           <div style={{marginTop: '1rem'}}>

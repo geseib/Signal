@@ -11,7 +11,8 @@ interface EvaluateRequest {
 interface EvaluationResult {
   passed: boolean;
   score: number;
-  feedback: string;
+  great: string;
+  improvement: string;
 }
 
 function getValidCodes(): string[] {
@@ -77,23 +78,22 @@ async function evaluateWithClaude(
   answer: string,
   rubric: string,
 ): Promise<EvaluationResult> {
-  const systemPrompt = `You are an experienced interview coach evaluating a user's response in a workshop about behavioral interviewing skills. You help interviewers and candidates improve their craft.
+  const systemPrompt = `You are an encouraging interview coach reviewing a workshop participant's response. Your goal is to help them learn and improve, not to grade them harshly.
 
-Your evaluation style:
-- ALWAYS find something genuinely good in the response first, even if small. Find the seed of good thinking — "Your instinct about X was right" or "You started in the right direction when you mentioned Y."
-- Be HONEST. If the answer misses the point, say so clearly but constructively. Do not say "Great job!" if the work isn't great.
-- When something is missing, connect it back to specific interviewing concepts from the workshop. Reference what they've learned: "Remember from the probing section..." or "Think about the principle of evaluating the candidate's ceiling..."
-- Give them a concrete next step: "Try reframing the question to..." or "Consider what signal you'd actually get from..."
-- Keep feedback to 2-4 sentences. Enough to be helpful, short enough to actually read.
+Your style:
+- Be generous. If they're making an effort and showing understanding, that counts. Imperfect wording, abbreviations, shorthand, and rough phrasing are all fine.
+- Always find specific things they did well — not generic praise like "good job" but concrete: "You captured the key data point about 47 failures" or "Good instinct to ask about the timeline."
+- Improvement suggestions should be actionable and brief. One or two specific things they could add or change.
+- Keep each section to 1-3 short sentences. Brief lines, not paragraphs.
 
-You are evaluating UNDERSTANDING of interviewing principles, not perfect phrasing. Someone who demonstrates the concept in their own words shows more understanding than someone who parrots a textbook answer.`;
+You are evaluating UNDERSTANDING, not perfection. Someone who captures the key concept in messy shorthand shows more understanding than someone who writes nothing.`;
 
-  const userPrompt = `Evaluate this response from a workshop participant.
+  const userPrompt = `Review this workshop participant's response.
 
 EXERCISE QUESTION:
 ${question}
 
-WHAT A STRONG ANSWER DEMONSTRATES (rubric for your eyes only — do not quote this to the user):
+WHAT A STRONG ANSWER DEMONSTRATES (rubric for your eyes only — do not quote this to the participant):
 ${rubric}
 
 PARTICIPANT'S RESPONSE:
@@ -103,21 +103,19 @@ Respond with EXACTLY this JSON format, nothing else:
 {
   "passed": true or false,
   "score": 0-100,
-  "feedback": "Your feedback here"
+  "great": "What they did well — be specific, 1-3 brief lines",
+  "improvement": "1-2 concrete suggestions for improvement — brief and actionable"
 }
 
-Scoring:
-- 80-100: Clear understanding. They demonstrate the core concept even if wording is imperfect.
-- 60-79: Partial understanding. Right direction but missing an important piece.
-- 40-59: Vague or surface-level. Has an idea but hasn't connected the dots.
-- 0-39: Doesn't demonstrate understanding of this concept yet.
+Scoring — be generous:
+- 80-100: Shows clear understanding. Core concepts are present even if rough.
+- 60-79: On the right track. Has the main idea but missing a piece.
+- 40-59: Some effort shown but key concepts are absent.
+- 0-39: Doesn't engage with the exercise.
 
-Set "passed" to true if score >= 70.
+Set "passed" to true if score >= 60.
 
-Feedback structure:
-- Start with what's genuinely good about their answer (be specific, not generic)
-- If not passed: Name the specific concept they should revisit. Suggest one concrete thing to try.
-- If passed: Acknowledge their understanding specifically. If there's room to go deeper, mention it briefly as an invitation.`;
+Keep "great" and "improvement" to brief, scannable lines. No long paragraphs.`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -155,13 +153,15 @@ Feedback structure:
     return {
       passed: Boolean(result.passed),
       score: Math.max(0, Math.min(100, Number(result.score) || 0)),
-      feedback: String(result.feedback || ''),
+      great: String(result.great || ''),
+      improvement: String(result.improvement || ''),
     };
   } catch {
     return {
       passed: true,
-      score: 70,
-      feedback: content,
+      score: 60,
+      great: content,
+      improvement: '',
     };
   }
 }
