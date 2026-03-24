@@ -25,6 +25,12 @@ export default function CandidateAnswer({candidateName, transcript, audioFile}: 
     }
   };
 
+  const handleBack10 = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - 10);
+    }
+  };
+
   return (
     <div
       style={{
@@ -55,6 +61,14 @@ export default function CandidateAnswer({candidateName, transcript, audioFile}: 
             style={{fontSize: '0.8rem', padding: '0.4rem 0.75rem'}}
           >
             {isPlaying ? '⏸ Pause' : '▶ Play Answer'}
+          </button>
+          <button
+            className="signal-btn signal-btn-secondary"
+            onClick={handleBack10}
+            style={{fontSize: '0.8rem', padding: '0.4rem 0.75rem'}}
+            title="Skip back 10 seconds — just like asking a candidate to repeat something"
+          >
+            ↺ Back 10s
           </button>
           <button
             className="signal-btn signal-btn-secondary"
