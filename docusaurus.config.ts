@@ -65,6 +65,12 @@ const config: Config = {
           label: '301 — Advanced',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'resources',
+          position: 'left',
+          label: 'Question Bank',
+        },
+        {
           to: '/progress',
           label: 'My Progress',
           position: 'right',

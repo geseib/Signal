@@ -57,6 +57,13 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  resources: [
+    {
+      type: 'doc',
+      id: 'question-bank',
+      label: 'Question Bank',
+    },
+  ],
 };
 
 export default sidebars;
