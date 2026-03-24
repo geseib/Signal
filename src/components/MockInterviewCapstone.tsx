@@ -3,6 +3,7 @@ import LoopPlanner from './LoopPlanner';
 import DebriefPanel from './DebriefPanel';
 import WritingExercise from './WritingExercise';
 import FollowUpPicker from './FollowUpPicker';
+import CandidateAnswer from './CandidateAnswer';
 
 type Step = 'plan' | 'interview' | 'debrief' | 'reflection';
 
@@ -200,20 +201,11 @@ export default function MockInterviewCapstone() {
           >
             Sam's Answer
           </h3>
-          <div
-            style={{
-              padding: '1rem 1.25rem',
-              borderRadius: 'var(--signal-radius-sm)',
-              background: 'rgba(147, 149, 153, 0.04)',
-              border: '1px solid var(--signal-silver)',
-              marginBottom: '1.5rem',
-              fontSize: '0.85rem',
-              lineHeight: 1.7,
-              whiteSpace: 'pre-wrap',
-            }}
-          >
-            {SAM_ANSWER}
-          </div>
+          <CandidateAnswer
+            candidateName="Sam"
+            audioFile="sam - swe-res.mp3"
+            transcript={SAM_ANSWER}
+          />
 
           {/* Note-taking exercise */}
           <WritingExercise
