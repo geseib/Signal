@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Signal',
   tagline: 'Master the art of interviewing — for interviewers and candidates',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon_radio_tower_1A_white.ico',
 
   url: 'https://signal-workshop.vercel.app',
   baseUrl: '/',
@@ -45,6 +45,10 @@ const config: Config = {
     },
     navbar: {
       title: 'Signal',
+      logo: {
+        alt: 'Signal Logo',
+        src: 'img/radio_tower_1A_black.svg',
+      },
       items: [
         {
           type: 'docSidebar',
