@@ -30,12 +30,12 @@ export const SECTIONS: SectionMeta[] = [
   {id: '201-S7', title: 'The Debrief', workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S8', title: 'Capstone: Practice Debrief', workshop: '201', quizCount: 3, maxXP: 80},
   // Workshop 301 (placeholders)
-  {id: '301-S1', title: 'The Full Interview Loop', workshop: '301', quizCount: 3, maxXP: 80},
+  {id: '301-S1', title: 'Planning the Interview Loop', workshop: '301', quizCount: 3, maxXP: 80},
   {id: '301-S2', title: 'Frameworks Beyond Amazon', workshop: '301', quizCount: 3, maxXP: 80},
-  {id: '301-S3', title: 'Technical Interview Integration', workshop: '301', quizCount: 3, maxXP: 80},
+  {id: '301-S3', title: 'Technical Interviews in the GenAI Era', workshop: '301', quizCount: 3, maxXP: 80},
   {id: '301-S4', title: 'Difficult Scenarios', workshop: '301', quizCount: 3, maxXP: 80},
   {id: '301-S5', title: 'Building a Story Bank', workshop: '301', quizCount: 3, maxXP: 80},
-  {id: '301-S6', title: 'Capstone: Full Mock', workshop: '301', quizCount: 3, maxXP: 80},
+  {id: '301-S6', title: 'Capstone: Full Mock Interview', workshop: '301', quizCount: 3, maxXP: 80},
 ];
 
 export function getSectionsForWorkshop(workshop: '101' | '201' | '301'): SectionMeta[] {

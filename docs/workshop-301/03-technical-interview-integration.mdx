@@ -1,8 +1,170 @@
 ---
 sidebar_position: 3
-title: "Technical Interview Integration"
+title: "Technical Interviews in the GenAI Era"
 ---
 
-# Technical Interview Integration
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
 
-*Content coming soon.*
+# Technical Interviews in the GenAI Era
+
+The traditional technical interview tests whether candidates have memorized the right algorithms. In a world where AI can generate code, that's testing the wrong thing. The engineers who thrive long-term are the ones who understand deeply, learn quickly, and bring genuine curiosity to unfamiliar problems.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The problem with skill-checklist interviews
+
+Traditional technical interviews look like this:
+
+1. Pick a topic from a checklist (hash maps, system design, SQL)
+2. Ask the candidate to solve a predefined problem
+3. Evaluate whether they produce the "right" answer
+
+This tests **memorization and interview prep**, not **engineering capability**. A candidate who spent two weeks grinding LeetCode will outperform a candidate who's been building production systems for 10 years — and that's not the signal you want.
+
+### Why this matters more now
+
+With GenAI tools, the cost of "knowing the syntax" or "remembering the algorithm" has collapsed to near zero. Any engineer can ask an AI to implement a red-black tree. What AI can't do is:
+
+- Understand *why* one architecture is better than another for a specific context
+- Debug a subtle production issue by reasoning from first principles
+- Recognize when a technical approach is wrong by drawing on deep domain experience
+- Ask the right clarifying questions when requirements are ambiguous
+- Learn a new domain quickly enough to contribute meaningfully
+
+**These are the skills that predict long-term success.** Your technical interview should evaluate them.
+
+### Evaluate the ceiling, not the checklist
+
+This is the same philosophy from Workshop 201's Writing Great Questions: **let candidates show their best technical work, then evaluate that ceiling.**
+
+| Checklist approach | Ceiling approach |
+|---|---|
+| "Implement a LRU cache" | "What's the most complex system you've designed? Walk me through the tradeoffs." |
+| "What are the ACID properties?" | "Tell me about a time your data model didn't hold up in production. What happened and what did you learn?" |
+| "Write a function to detect cycles in a linked list" | "What's the hardest debugging session you've had? Take me through how you found the root cause." |
+
+When someone shows you the best technical work they've ever done — and you probe it deeply — you learn far more than any standardized puzzle can tell you.
+
+### How to structure a technical interview for depth and adaptability
+
+**Phase 1: Start in their territory (15-20 minutes)**
+
+Ask about a system, tool, or problem they know deeply. Go below the surface:
+
+- "You mentioned you designed the caching layer. Why did you choose Redis over Memcached? What were the tradeoffs?"
+- "Walk me through a production incident in this system. How did you diagnose it?"
+- "If you had to redesign this system today, what would you change and why?"
+
+**What you're evaluating:** Depth of understanding. Can they explain *why*, not just *what*? Do they understand the tradeoffs, not just the solution they picked? Can they critique their own work?
+
+**Phase 2: Stretch into adjacent territory (15-20 minutes)**
+
+Introduce a novel problem that's related to but outside their direct experience:
+
+- "Your caching system handled 50K requests/sec. What would need to change if it were 5M requests/sec?"
+- "You built this as a monolith. How would you decompose it if you needed to scale the team to 50 engineers?"
+- "Your system assumes reliable network. What would you do if you needed to handle network partitions?"
+
+**What you're evaluating:** Learning velocity. Do they ask clarifying questions? Do they reason from first principles? Do they acknowledge what they don't know and build on what they do? Are they curious or defensive when facing the unknown?
+
+**Phase 3: Look for learning signals (throughout)**
+
+The most predictive signals aren't about what someone knows today. They're about how someone approaches what they *don't* know:
+
+| Strong learning signal | Weak learning signal |
+|---|---|
+| "I haven't worked with that directly, but based on what I know about X, I'd expect..." | "I don't know" (shuts down) |
+| "Can I ask a clarifying question about the constraints?" | Jumps to a solution without understanding the problem |
+| "In hindsight, my approach had a flaw — I'd handle it differently now" | "My solution was correct, I wouldn't change anything" |
+| "I'd want to prototype this and measure before committing to the architecture" | "The textbook answer is X" (recitation without context) |
+
+### The technical interview IS a behavioral interview
+
+If you listen for the right things, a technical deep-dive reveals behavioral signal too:
+
+- **Ownership:** Did they drive the technical direction or follow someone else's design?
+- **Collaboration:** How did they work with other engineers on system design decisions?
+- **Customer Focus:** Did they consider the user impact of their technical choices?
+- **Judgment:** When they faced tradeoffs, how did they decide?
+
+You don't need separate "behavioral" and "technical" interviews if your technical interview is structured to surface both kinds of signal.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Write technical questions for depth and stretch
+
+Below is a candidate's resume highlight:
+
+> **Alex Rivera** — Backend engineer, 4 years experience. Built and maintained a real-time event processing pipeline handling 100K events/sec using Kafka and Flink. Led the migration from a batch processing system to the streaming architecture. Previously worked on a REST API serving mobile clients.
+
+<WritingExercise
+  question="Write two technical interview questions for Alex:
+
+1. A 'depth' question — exploring something Alex knows well, going below the surface to test real understanding (not just knowledge that it exists)
+
+2. A 'stretch' question — an adjacent problem that builds on Alex's experience but pushes into territory they may not have encountered"
+  context="For each question, note what signal you're looking for. The depth question should probe WHY decisions were made, not just WHAT was built. The stretch question should reveal how Alex thinks through unfamiliar problems."
+  sectionId="301-S3"
+  rubric="The depth question should go beyond 'describe your pipeline' and probe decision-making, tradeoffs, or failure modes in Alex's known domain. Strong examples: 'Why Kafka over alternatives like Kinesis or Pulsar? What tradeoffs did you weigh?', 'Walk me through a failure in the pipeline and how you diagnosed it', 'What would break first if event volume doubled?' Weak examples that just test knowledge: 'What is Kafka?', 'Explain stream processing.' The stretch question should build on Alex's experience but push into adjacent territory. Strong examples: 'Your pipeline handles 100K events/sec — what architectural changes would you need at 10M events/sec?', 'You migrated from batch to streaming — what if you needed exactly-once processing guarantees? How would that change your design?', 'Your event pipeline feeds downstream services — how would you handle schema evolution without breaking consumers?' The key signal for each should be noted: depth question tests understanding and self-critique, stretch question tests reasoning from first principles and learning velocity."
+  placeholder="DEPTH QUESTION:
+Question: ___
+Signal I'm looking for: ___
+
+STRETCH QUESTION:
+Question: ___
+Signal I'm looking for: ___"
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="301-S3"
+  quizId="301-S3-Q1"
+  question="A candidate can't solve your algorithmic puzzle but spent 10 minutes asking smart clarifying questions, reasoning through partial approaches, and identifying why each approach would fail at scale. What does this tell you?"
+  options={[
+    "They're not technically strong enough — they couldn't solve the problem",
+    "They have strong problem-solving and reasoning skills, which predict long-term engineering success better than puzzle-solving",
+    "They need more interview prep — recommend they study and reapply",
+    "The question was too hard — ask an easier one"
+  ]}
+  correctIndex={1}
+  explanation="Reasoning process is more predictive than puzzle completion. An engineer who asks smart questions, reasons through constraints, and identifies failure modes will outperform a puzzle-grinder in production. The ability to think through the unknown is exactly what you're looking for."
+/>
+
+<Quiz
+  sectionId="301-S3"
+  quizId="301-S3-Q2"
+  question="Why is 'evaluate their best technical work' more effective than 'test a random technical skill'?"
+  options={[
+    "It's easier for the candidate",
+    "It takes less preparation from the interviewer",
+    "Their ceiling — the best they can do — is more predictive of long-term performance than whether they've memorized a specific topic",
+    "It avoids asking hard questions"
+  ]}
+  correctIndex={2}
+  explanation="When someone shows you their best technical work and you probe it deeply, you see their ceiling — how they think at their highest level. A randomized skill test might catch them on something they haven't studied recently, which tells you about their prep, not their capability."
+/>
+
+<Quiz
+  sectionId="301-S3"
+  quizId="301-S3-Q3"
+  question="With GenAI tools, which technical skill has become LESS important to test in interviews?"
+  options={[
+    "Memorized knowledge of specific algorithms and syntax",
+    "Ability to reason through novel problems from first principles",
+    "Understanding of system design tradeoffs",
+    "Curiosity and learning velocity when facing unfamiliar territory"
+  ]}
+  correctIndex={0}
+  explanation="AI can generate code, recall syntax, and implement standard algorithms. What it can't do is reason about YOUR specific context, debug subtle production issues, or ask the right clarifying questions. Test the skills AI can't replace: reasoning, judgment, curiosity, and depth of understanding."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

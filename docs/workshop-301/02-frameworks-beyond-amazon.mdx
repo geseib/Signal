@@ -3,6 +3,162 @@ sidebar_position: 2
 title: "Frameworks Beyond Amazon"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
+
 # Frameworks Beyond Amazon
 
-*Content coming soon.*
+Amazon's Leadership Principles get the most attention, but they're not the only way to structure interviews. Every company that interviews well has the same underlying pattern — they just call it different things.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The universal pattern
+
+Every effective interview framework follows the same structure, regardless of company:
+
+1. **Define criteria** — what does "great" look like for this role?
+2. **Assign to interviewers** — who evaluates what?
+3. **Collect behavioral evidence** — structured questions, probing, note-taking
+4. **Debrief with evidence** — compare notes, make a decision based on data
+
+The specifics vary — Amazon calls them Leadership Principles, Google calls them hiring attributes, Netflix describes a culture — but the pattern is the same. Understanding this pattern means you can build or adapt a framework for any organization.
+
+### How major companies structure their interviews
+
+| Company | Framework | Key characteristics |
+|---|---|---|
+| **Amazon** | 16 Leadership Principles | Each interviewer assigned specific LPs. Bar Raiser with veto power. Written feedback before debrief. |
+| **Google** | Hiring attributes (General Cognitive Ability, Role-Related Knowledge, Leadership, Googleyness) | Structured rubrics for each attribute. Hiring committee makes the final decision, not the hiring manager. |
+| **Netflix** | Culture Memo values (Judgment, Communication, Curiosity, Courage, Passion, Selflessness, Innovation, Inclusion, Integrity, Impact) | Emphasizes culture alignment. "Keeper test" — would you fight to keep this person? |
+| **Microsoft** | Growth Mindset + role competencies | Focus on learning velocity and adaptability. "How do you learn?" is as important as "What do you know?" |
+| **Stripe** | Craft, rigor, user empathy | Focus on quality of thinking and attention to detail. Technical interviews emphasize real-world problem-solving. |
+| **Meta** | Core values + role-specific signals | Behavioral interviews (now called "Leadership & Drive") alongside technical. Focus on impact at scale. |
+
+### What's universal vs. company-specific
+
+**Universal (works everywhere):**
+- Structured evaluation criteria assigned to interviewers
+- Behavioral questions that ask for past evidence
+- Independent write-ups before the debrief
+- Evidence-based decision-making
+
+**Company-specific (adapt to your context):**
+- The specific principles or values being evaluated
+- Number of interviewers and loop structure
+- Who has final decision authority (hiring manager vs. committee vs. Bar Raiser)
+- Weighting of behavioral vs. technical interviews
+
+### When your company has values but no interview framework
+
+Most companies have stated values. Few have translated them into an interview evaluation framework. Here's how to bridge the gap:
+
+**Step 1: Take your company's values and make them evaluable.**
+
+Vague value: *"We value innovation."*
+
+Evaluable criteria: *"The candidate demonstrates a pattern of identifying new approaches or solutions, testing them with data, and advocating for change even when it means challenging the status quo."*
+
+**Step 2: Define what "strong" looks like at the target level.**
+
+A junior engineer's "innovation" looks different from a VP's. Calibrate examples for the level you're hiring for.
+
+**Step 3: Assign evaluable criteria to interviewers.**
+
+Same loop-planning principles from Section 1 — no gaps, no overlap, appropriate expertise.
+
+### Building a lightweight framework from scratch
+
+If your company has no values document at all, start with these five universal qualities that predict success in most knowledge-work roles:
+
+| Quality | What it predicts | How to evaluate |
+|---|---|---|
+| **Ownership** | Will they take initiative and see things through? | "Tell me about a time you took on something that wasn't your responsibility." |
+| **Problem-solving depth** | Can they think through complex problems? | "Walk me through the hardest technical problem you've solved recently." |
+| **Collaboration** | Can they work across boundaries? | "Tell me about a time you needed buy-in from people who didn't report to you." |
+| **Learning velocity** | Will they grow with the role? | "Tell me about a time you had to learn something new quickly to deliver a result." |
+| **Judgment** | Do they make good decisions under uncertainty? | "Tell me about a time you had to make a significant decision without complete information." |
+
+This isn't Amazon. This isn't Google. This is a practical starting framework you can use tomorrow.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Translate company values into interview criteria
+
+Below are the stated values of a fictional company called **Meridian Health**, a digital health startup:
+
+> *"We put patients first. We move fast and learn faster. We build trust through transparency. We're stronger together."*
+
+<WritingExercise
+  question="Translate each of Meridian Health's four values into evaluable interview criteria. For each value, write: (1) what 'strong' looks like in a candidate's behavior, and (2) one interview question that would surface evidence for that value."
+  context="The key is making vague values concrete and evaluable. 'Patients first' needs to become something an interviewer can actually assess from a behavioral answer."
+  sectionId="301-S2"
+  rubric="A strong response should translate all four values into concrete, evaluable criteria. For 'patients first': should describe user/customer-centric decision-making, not just saying they care — look for decisions where the candidate chose the user's interest over internal convenience. For 'move fast and learn faster': should describe speed of execution AND learning from outcomes, not just shipping fast. For 'trust through transparency': should describe open communication, admitting mistakes, sharing bad news early. For 'stronger together': should describe cross-functional collaboration, building alignment, helping others succeed. Each question should be behavioral ('tell me about a time...') and open enough for any candidate to find a relevant story. The criteria should be specific enough that two interviewers evaluating the same answer would reach similar conclusions."
+  placeholder="Value 1: 'We put patients first'
+Strong looks like: ___
+Interview question: ___
+
+Value 2: 'We move fast and learn faster'
+Strong looks like: ___
+Interview question: ___
+
+Value 3: 'We build trust through transparency'
+Strong looks like: ___
+Interview question: ___
+
+Value 4: 'We're stronger together'
+Strong looks like: ___
+Interview question: ___"
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="301-S2"
+  quizId="301-S2-Q1"
+  question="What is the underlying pattern that ALL effective interview frameworks share?"
+  options={[
+    "They all use Amazon's Leadership Principles",
+    "They all require a Bar Raiser with veto power",
+    "Define criteria → assign to interviewers → collect evidence → debrief with data",
+    "They all prioritize technical interviews over behavioral ones"
+  ]}
+  correctIndex={2}
+  explanation="The universal pattern is: define what you're looking for, make sure each interviewer knows their focus area, collect behavioral evidence through structured interviews, and make the decision based on evidence in the debrief. The specific principles, number of interviewers, and decision authority vary by company."
+/>
+
+<Quiz
+  sectionId="301-S2"
+  quizId="301-S2-Q2"
+  question="Your company's values include 'We value innovation.' Why is this insufficient as an interview evaluation criterion?"
+  options={[
+    "Innovation can't be evaluated in an interview",
+    "It's too vague — two interviewers could interpret it completely differently, making consistent evaluation impossible",
+    "Only technical candidates can demonstrate innovation",
+    "It's a company value, not a hiring criterion"
+  ]}
+  correctIndex={1}
+  explanation="Vague values lead to inconsistent evaluation. One interviewer might think innovation means 'came up with a novel algorithm' while another thinks it means 'challenged the status quo on a process issue.' Making values evaluable means defining specific behaviors that count as evidence."
+/>
+
+<Quiz
+  sectionId="301-S2"
+  quizId="301-S2-Q3"
+  question="You're joining a company that has no formal interview framework. What is the most effective first step?"
+  options={[
+    "Adopt Amazon's Leadership Principles exactly — they're proven",
+    "Skip the framework and rely on experienced interviewers' judgment",
+    "Identify 4-5 qualities that predict success in your specific context and define what 'strong' looks like for each",
+    "Wait until the company is larger and has more resources to build a framework"
+  ]}
+  correctIndex={2}
+  explanation="Start with what predicts success in YOUR context. Borrowing another company's framework wholesale misses the point — the principles should reflect what actually matters for your team and roles. 4-5 well-defined qualities that your interviewers can consistently evaluate is better than 16 borrowed principles nobody has calibrated on."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

@@ -3,6 +3,222 @@ sidebar_position: 4
 title: "Difficult Scenarios"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import FollowUpPicker from '@site/src/components/FollowUpPicker';
+
 # Difficult Scenarios
 
-*Content coming soon.*
+Not every interview goes smoothly. Candidates ramble, get defensive, give rehearsed answers, or leave you with 5 minutes and two unasked questions. These scenarios test your ability to adapt in real time while keeping the interview productive.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The interviewer's job is to generate signal — even when it's hard
+
+A difficult interview doesn't mean a bad candidate. It might mean a nervous candidate, a poorly worded question, or a communication style that doesn't match yours. Your job is to **adapt your approach to maximize the signal you can collect**, not to write off the candidate because the interview was awkward.
+
+### Scenario types and strategies
+
+#### The Rambler
+**What it looks like:** The candidate starts answering and doesn't stop. Five minutes in, they're still on the Situation with no sign of getting to the Action.
+
+**Why it happens:** Nervousness, lack of preparation, or genuinely complex context that they haven't learned to summarize.
+
+**Strategy:**
+- Wait for a natural pause, then redirect: *"That's really helpful context. I want to make sure we have time to get to what you specifically did — can you walk me through the actions you took?"*
+- If there's no natural pause, gently interrupt: *"I appreciate the detail. Let me steer us — what was the key decision YOU made, and what happened?"*
+- Don't let it run. A 10-minute Situation with no Action means no signal on what you're evaluating.
+
+#### The Rehearsed Answerer
+**What it looks like:** Every answer sounds polished, structured, and slightly generic. The stories hit all the right notes but feel like a prepared performance, not a real experience.
+
+**Why it happens:** Thorough interview prep (which is actually a positive signal about preparation). The problem is the surface-level stories don't give you real data.
+
+**Strategy:**
+- Probe one level deeper than the prepared answer: *"You mentioned the project saved $200K. Walk me through how you calculated that number."*
+- Ask about what went wrong: *"What was the part of this that didn't go as planned?"*
+- Go off-script: *"That's a great example. Now tell me about a time something similar went badly."*
+
+#### The Defensive Candidate
+**What it looks like:** When you probe, the candidate pushes back: *"I already explained that"* or *"My approach was correct, I wouldn't change anything."*
+
+**Why it happens:** They feel challenged rather than supported. Sometimes it's a personality trait; sometimes the interviewer's tone triggered it.
+
+**Strategy:**
+- Acknowledge before probing: *"That's a solid approach. I'm curious — what alternatives did you consider before landing on that?"*
+- Reframe probes as curiosity, not challenge: *"I'm interested in the decision-making process, not second-guessing the outcome."*
+- If defensiveness persists, that IS data. Note it factually: "When probed on alternative approaches, candidate said 'my way was correct' and declined to discuss tradeoffs."
+
+#### The Candidate at the Wrong Level
+**What it looks like:** A candidate referred by a senior leader. Their answers are consistently at a lower level than the role requires. The senior leader expects them to be hired.
+
+**Strategy:**
+- Interview them at the same standard as every other candidate. No adjustments for referrals.
+- Document your evidence thoroughly. "Candidate described execution-level work but couldn't articulate strategic decisions" is evidence. "Wasn't senior enough" is a verdict.
+- In the debrief, present evidence, not opinions. Let the data speak.
+
+#### The Split Panel
+**What it looks like:** Two interviewers say "strong hire," two say "strong no-hire." Everyone has evidence.
+
+**Strategy:**
+- Go principle by principle. Where exactly do the assessments diverge?
+- Check whether different interviewers saw genuinely different behaviors (possible — candidates adapt) or interpreted the same behavior differently (calibration issue)
+- If the split is on a critical principle, an additional targeted interview is the responsible next step
+- Majority vote is NOT how you resolve a split panel
+
+#### Time Pressure
+**What it looks like:** You've used 40 minutes and only covered 2 of your 3 assigned questions. The candidate's answers have been thorough but long.
+
+**Strategy:**
+- Prioritize. Which remaining principle has the least coverage? Ask that question.
+- If you have 5 minutes, switch to a focused probe: *"We're running short on time. Quick question — tell me about a time you had to make a fast decision with incomplete information. Just the headline version."*
+- In your debrief notes, flag the gap: "Only covered 2 of 3 principles due to time. No data on Bias for Action."
+- NEVER rush through a question just to check the box. One well-evaluated principle is better than three shallow ones.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Handle the difficult scenario
+
+For each scenario, pick the best interviewer response.
+
+### Scenario 1: The Rambler
+
+The candidate has been talking for 6 minutes about the organizational context of their project. You've heard about the company structure, the team dynamics, and the history of the product — but nothing about what the candidate actually did.
+
+<FollowUpPicker
+  scenarioId="301-S4-rambler"
+  followUps={[
+    {
+      label: "Let me stop you there — we're running out of time and I need you to answer more concisely.",
+      explanation: "Too blunt. This will make the candidate anxious and defensive, which produces worse answers for the rest of the interview. You need to redirect, not criticize.",
+      isCorrect: false,
+    },
+    {
+      label: "That's really helpful context. I want to make sure we get to your specific contribution — can you walk me through the key decision you made and what happened?",
+      explanation: "This acknowledges what they've said (so they don't feel cut off), names what you need (their specific contribution), and redirects to the Action phase of their STAR. Respectful and effective.",
+      isCorrect: true,
+    },
+    {
+      label: "Keep going, I'm taking notes.",
+      explanation: "You'll get more Situation but no Action. Six minutes of context with no candidate actions means no signal on what you're evaluating. You need to redirect.",
+      isCorrect: false,
+    },
+    {
+      label: "Let me ask a different question — that one doesn't seem to be working.",
+      explanation: "Abandoning the question wastes the 6 minutes of context the candidate just gave you. A redirect gets you to the valuable part of THIS story, which is more efficient than starting over.",
+      isCorrect: false,
+    },
+  ]}
+/>
+
+### Scenario 2: The Rehearsed Answerer
+
+The candidate gives a polished, structured answer about leading a product launch. It hits Situation, Task, Action, and Result perfectly — almost too perfectly. The metrics sound impressive (40% improvement, $2M revenue impact) but something feels scripted.
+
+<FollowUpPicker
+  scenarioId="301-S4-rehearsed"
+  followUps={[
+    {
+      label: "Great answer. Let's move to the next question.",
+      explanation: "You haven't probed at all. A polished surface-level answer with impressive metrics could be real — or it could be rehearsed and inflated. Without probing, you don't know. That's not signal.",
+      isCorrect: false,
+    },
+    {
+      label: "That sounds rehearsed. Can you give me a more authentic answer?",
+      explanation: "Accusing the candidate of being inauthentic is hostile and unfair. Interview preparation is a POSITIVE signal. The issue isn't that they prepared — it's that you need to go deeper.",
+      isCorrect: false,
+    },
+    {
+      label: "You mentioned a 40% improvement. Walk me through how you measured that — what was the baseline and how did you isolate your contribution from other factors?",
+      explanation: "This probes the specific claim without being confrontational. If the metric is real, they'll be able to explain the measurement. If it's inflated or borrowed from a team result, they'll struggle. This breaks through the rehearsed surface to find real signal.",
+      isCorrect: true,
+    },
+    {
+      label: "Tell me about the part of this project that didn't go well.",
+      explanation: "This is a good follow-up but not the strongest choice here. The immediate opportunity is to probe the specific metric claim — the 40% improvement. Once you've validated the data, then asking about failures is a great next step.",
+      isCorrect: false,
+    },
+  ]}
+/>
+
+### Scenario 3: Time pressure
+
+You've used 40 minutes of your 45-minute slot. You've covered Ownership thoroughly and have good data on Collaboration. You haven't asked anything about Bias for Action, your third assigned principle.
+
+<FollowUpPicker
+  scenarioId="301-S4-time"
+  followUps={[
+    {
+      label: "Skip it — two principles with good data is enough. Don't rush the third.",
+      explanation: "Leaving a principle uncovered is sometimes the right call, but only if it's not critical for the role. If Bias for Action matters, you need at least some data. Five minutes is enough for a focused question.",
+      isCorrect: false,
+    },
+    {
+      label: "We have about 5 minutes left. Quick one — tell me about a time you had to make a significant decision quickly without all the information you wanted. Just the key facts: what was the decision, what did you do, and what happened?",
+      explanation: "This is the best use of limited time. You frame the constraint ('5 minutes, quick one'), ask a focused behavioral question, and tell them you want the headline version. You'll get a compressed answer but it'll give you some data on Bias for Action — better than zero data.",
+      isCorrect: true,
+    },
+    {
+      label: "Ask all three remaining questions in rapid succession to get through everything.",
+      explanation: "Rapid-fire questions produce shallow answers. One well-explored question generates more signal than three rushed ones. Prioritize the most important uncovered principle.",
+      isCorrect: false,
+    },
+    {
+      label: "Ask the candidate to stay 15 minutes longer to cover everything.",
+      explanation: "Going over time is disrespectful to the candidate's schedule and the next interviewer's slot. Work with the time you have.",
+      isCorrect: false,
+    },
+  ]}
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="301-S4"
+  quizId="301-S4-Q1"
+  question="A candidate gives a polished, metrics-heavy answer that feels rehearsed. What should you conclude?"
+  options={[
+    "The answer is probably inflated — rehearsed answers are less trustworthy",
+    "Nothing yet — thorough preparation is a positive signal, but you need to probe the specifics to confirm the claims",
+    "Accept it at face value — if they have metrics, the answer must be strong",
+    "Ask them to tell a story they haven't prepared for"
+  ]}
+  correctIndex={1}
+  explanation="Interview preparation is a positive signal — it shows the candidate takes this seriously. A polished answer isn't suspicious by itself. But you do need to probe the specifics (metrics, methodology, individual contribution) to confirm the substance behind the polish."
+/>
+
+<Quiz
+  sectionId="301-S4"
+  quizId="301-S4-Q2"
+  question="A candidate referred by your VP gives answers that are consistently at a mid-level, not the senior level you're hiring for. What should you do?"
+  options={[
+    "Adjust your expectations — the VP's endorsement means they have hidden potential",
+    "Interview them at the same standard as every other candidate and document evidence-based observations",
+    "Give them an easier version of the interview since they came highly recommended",
+    "Reject them before the debrief to avoid an awkward conversation with the VP"
+  ]}
+  correctIndex={1}
+  explanation="Every candidate gets the same standard, regardless of who referred them. Document your observations factually ('candidate described execution-level work but couldn't articulate strategic decisions') and let the evidence speak in the debrief. The VP's referral is not interview data."
+/>
+
+<Quiz
+  sectionId="301-S4"
+  quizId="301-S4-Q3"
+  question="Two interviewers say 'strong hire' and two say 'strong no-hire.' How should the debrief handle this?"
+  options={[
+    "Majority vote — 2-2 means no hire since there isn't a clear majority",
+    "The hiring manager breaks the tie",
+    "Analyze the split principle-by-principle — find where exactly the assessments diverge and whether an additional targeted interview would resolve the gap",
+    "Average the scores to get a middle-ground rating"
+  ]}
+  correctIndex={2}
+  explanation="A split panel is information, not a problem to resolve with a tiebreaker. Go principle by principle: where exactly do the assessments diverge? Did interviewers see different behaviors, or interpret the same behavior differently? If the split is on a critical principle, an additional focused interview is the responsible next step."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>

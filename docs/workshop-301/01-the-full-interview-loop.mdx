@@ -1,8 +1,154 @@
 ---
 sidebar_position: 1
-title: "The Full Interview Loop"
+title: "Planning the Interview Loop"
 ---
 
-# The Full Interview Loop
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import WritingExercise from '@site/src/components/WritingExercise';
 
-*Content coming soon.*
+# Planning the Interview Loop
+
+The interview loop is only as good as its setup. Most hiring failures don't happen during the interviews — they happen before them, when nobody planned who's evaluating what.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## The loop starts before anyone walks into a room
+
+A four-person interview panel where everyone asks about "leadership" and nobody evaluates technical depth is a wasted loop. You'll get four overlapping data points on the same thing and zero data on what actually matters for the role.
+
+**The job of loop planning is simple: make sure every principle gets covered, every interviewer knows what they're looking for, and nobody goes in cold.**
+
+### Inputs for loop planning
+
+Before assigning interviewers, gather these:
+
+| Input | What it tells you | Where to find it |
+|---|---|---|
+| **Resume** | Technical domain, career progression, scope of past work, potential strengths to explore | Candidate application |
+| **Recruiter screen notes** | Initial impressions, motivation for the role, salary expectations, red flags or highlights from the phone screen | Recruiter handoff |
+| **Hiring manager intake** | What the role actually needs, which principles matter most, what gap this hire fills on the team | Pre-loop kickoff meeting |
+| **Role requirements** | Level expectations, must-have vs. nice-to-have skills, team composition | Job description + hiring manager |
+| **Pre-screening interview** | Technical baseline, communication style, areas that warrant deeper probing | Phone screen or take-home results |
+
+### Mapping principles to interviewers
+
+Each interviewer should be assigned **2-3 principles** to evaluate. The mapping should ensure:
+
+- **Complete coverage** — every principle is assigned to at least one interviewer
+- **No dead zones** — if a principle is critical for the role, assign it to two interviewers for redundancy
+- **Appropriate expertise** — the engineer on the panel evaluates technical depth; the cross-functional partner evaluates collaboration
+
+**Example loop plan for a Senior Engineer role:**
+
+| Interviewer | Role | Assigned Principles | Focus Area |
+|---|---|---|---|
+| **Interviewer 1** (Hiring Manager) | Engineering Manager | Ownership, Bias for Action | Leadership decisions, initiative, speed vs. quality tradeoffs |
+| **Interviewer 2** (Peer) | Senior Engineer | Dive Deep, Technical Excellence | System design depth, debugging approach, technical tradeoffs |
+| **Interviewer 3** (Cross-team) | Product Manager | Customer Focus, Collaboration | User empathy, cross-functional work, stakeholder management |
+| **Bar Raiser** | Senior from another team | All principles (holistic) | Overall bar, pattern consistency, veto authority |
+
+### The interviewer prep packet
+
+Don't just assign principles and walk away. Give each interviewer a **prep packet** — brief, scannable, actionable:
+
+1. **Candidate context** (2-3 sentences): "Priya is a senior backend engineer with 6 years of experience. Her resume highlights a payment processing migration and a monitoring system she built outside her team's scope. Recruiter notes indicate she's motivated by technical impact, not management."
+
+2. **Your assigned principles**: Ownership, Bias for Action
+
+3. **Suggested question areas** (NOT scripted questions): "Explore the monitoring project — how she identified the problem, why she took it on, and what she chose NOT to do in order to make time for it. For Bias for Action, look for evidence of decision-making speed and willingness to act with imperfect information."
+
+4. **What to watch for**: "Recruiter noted she tends to say 'we' frequently — probe for individual contribution."
+
+### Common setup failures
+
+| Failure | What goes wrong | The fix |
+|---|---|---|
+| **Everyone evaluates the same thing** | Four interviewers all ask about leadership. Nobody checks technical depth. | Assign specific principles per interviewer. |
+| **Nobody covers a critical principle** | The role requires strong Customer Focus but it's not assigned to anyone. | Review principle coverage before the loop starts. |
+| **Interviewers go in cold** | No prep packet, no resume review, no context on what to look for. | 15-minute prep time with a prep packet is non-negotiable. |
+| **The Bar Raiser isn't briefed** | They don't know the role level, the team context, or the bar. | Include Bar Raiser in the pre-loop kickoff. |
+| **No debrief plan** | Interviews happen but no one scheduled the debrief or defined the format. | Schedule the debrief before the loop starts. |
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+## Exercise: Plan a loop
+
+You're the hiring manager for a **Senior Product Manager** role. Below is what you know about the candidate and the role. Plan the interview loop.
+
+**Candidate:** Jordan Chen — 5 years of PM experience, currently at a B2B SaaS company. Resume highlights: launched a self-serve onboarding flow that reduced support tickets by 40%, led a cross-functional team of 8 to deliver a pricing page redesign, and managed a product sunset that affected 2,000 customers. Recruiter notes: "Articulate and structured in the phone screen. Strong on user empathy. Didn't have a great answer about handling eng pushback — seemed to default to escalation rather than influence."
+
+**Role principles to evaluate:** Customer Obsession, Ownership, Collaboration, Bias for Action, Earn Trust
+
+**Your panel:** 4 interviewers + Bar Raiser
+- You (hiring manager, PM Director)
+- A senior engineer from the team
+- A designer who works with this team
+- A PM from another team
+- Bar Raiser (senior leader from outside the org)
+
+<WritingExercise
+  question="Plan the interview loop. For each of the 4 interviewers (not including the Bar Raiser), assign 1-2 principles and write a one-line prep note about what to focus on, informed by the candidate's resume and recruiter notes."
+  context="Think about which interviewer is best positioned to evaluate each principle. Make sure every principle is covered. Use the recruiter's flag about handling eng pushback to inform where you focus Collaboration."
+  sectionId="301-S1"
+  rubric="A strong loop plan should: (1) Assign all 5 principles across the 4 interviewers with no gaps. (2) Match principles to the right interviewer — the engineer should evaluate technical-adjacent principles, the designer should evaluate customer/user-focused principles, the cross-team PM should evaluate collaboration/influence since the recruiter flagged a gap there. (3) Include brief prep notes that reference specific resume items or recruiter observations — not generic 'evaluate ownership' but 'explore the product sunset — how she managed 2,000 affected customers shows Ownership and Customer Obsession.' (4) Address the recruiter's flag about eng pushback somewhere — ideally by assigning Collaboration to someone who can probe this specifically. Abbreviations and informal language are fine. The plan should be practical, not formal."
+  placeholder="Interviewer 1 (You - PM Director): Principles: ___ | Prep note: ___
+Interviewer 2 (Senior Engineer): Principles: ___ | Prep note: ___
+Interviewer 3 (Designer): Principles: ___ | Prep note: ___
+Interviewer 4 (PM from another team): Principles: ___ | Prep note: ___"
+/>
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="301-S1"
+  quizId="301-S1-Q1"
+  question="A recruiter's phone screen notes mention that a candidate 'gets flustered when asked about failures.' How should this inform loop planning?"
+  options={[
+    "Avoid asking about failures — it will make the candidate uncomfortable",
+    "Assign a skilled interviewer to probe this area with a well-crafted behavioral question, and note it in their prep packet",
+    "Reject the candidate before the loop — this is a red flag",
+    "Let every interviewer ask about failures to see if the pattern holds"
+  ]}
+  correctIndex={1}
+  explanation="Recruiter observations are data, not verdicts. 'Gets flustered about failures' could mean the candidate hasn't prepared, or it could mean the recruiter asked a bad question. Assign a skilled interviewer to probe this area thoughtfully — that's what loop planning is for."
+  incorrectExplanation="Recruiter flags should inform the loop plan, not determine the outcome. The right response is to make sure the right interviewer probes this area with a good behavioral question, giving the candidate a fair chance to demonstrate self-awareness and learning from failure."
+/>
+
+<Quiz
+  sectionId="301-S1"
+  quizId="301-S1-Q2"
+  question="You're planning a 4-person loop for a role where Collaboration is the most critical principle. How many interviewers should evaluate it?"
+  options={[
+    "One — each interviewer should cover different principles",
+    "Two — assign it to two interviewers for redundancy on the most critical principle",
+    "All four — if it's the most important, everyone should evaluate it",
+    "None — let the Bar Raiser handle the most critical principle"
+  ]}
+  correctIndex={1}
+  explanation="For the most critical principle, assign it to two interviewers. This gives you two independent data points on what matters most. Having all four evaluate it creates the overlap problem — you'd get four Collaboration data points and miss other principles entirely."
+  incorrectExplanation="Critical principles deserve redundancy — two interviewers ensures you get strong signal even if one interview doesn't go deep enough. But assigning it to everyone creates gaps on other principles."
+/>
+
+<Quiz
+  sectionId="301-S1"
+  quizId="301-S1-Q3"
+  question="What is the purpose of an interviewer prep packet?"
+  options={[
+    "To give interviewers scripted questions they must follow exactly",
+    "To provide candidate context, assigned principles, and suggested focus areas so interviewers can prepare their own questions",
+    "To share other interviewers' assessments so everyone is aligned",
+    "To tell interviewers whether to hire or not before the interview"
+  ]}
+  correctIndex={1}
+  explanation="Prep packets give interviewers the context they need to prepare well — candidate background, their assigned principles, and areas to explore. They should NOT include scripted questions (interviewers craft their own) or other interviewers' opinions (that would create anchoring bias)."
+  incorrectExplanation="Prep packets provide context and focus, not scripts or pre-judgments. Interviewers should craft their own questions based on the candidate context and their assigned principles."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>
