@@ -3,6 +3,84 @@ sidebar_position: 6
 title: "Capstone: Full Mock Interview"
 ---
 
+import Quiz from '@site/src/components/Quiz';
+import LearnDoCheck from '@site/src/components/LearnDoCheck';
+import MockInterviewCapstone from '@site/src/components/MockInterviewCapstone';
+
 # Capstone: Full Mock Interview
 
-*Content coming soon.*
+Everything you have learned across all three workshops comes together here. You will plan an interview loop, conduct your own interview, review notes from multiple interviewers, identify bias, and write a final hire/no-hire recommendation — the complete cycle, start to finish.
+
+<LearnDoCheck>
+<LearnDoCheck.Learn>
+
+## How this works
+
+This capstone simulates a real interview loop for a Senior Engineer candidate. You will move through four phases:
+
+| Phase | What you do |
+|---|---|
+| **Plan the Loop** | Review the candidate profile and assign interviewers to principle-based slots |
+| **Your Interview** | Conduct your Dive Deep interview — read Sam's answer, take notes, choose a follow-up |
+| **The Debrief** | Review all interviewers' notes, identify bias, and write your recommendation |
+| **Reflection** | Review what strong debrief participants do and check your understanding |
+
+Each phase builds on the previous one. Take your time — this is the culmination of the entire workshop series.
+
+</LearnDoCheck.Learn>
+
+<LearnDoCheck.Do>
+
+<MockInterviewCapstone />
+
+</LearnDoCheck.Do>
+
+<LearnDoCheck.Check>
+
+<Quiz
+  sectionId="301-S6"
+  quizId="301-S6-Q1"
+  question="During the debrief, one interviewer says: 'Sam seems like a solo operator — I don't think they'd collaborate well on our team.' The Bar Raiser asks you to respond. Based on the evidence from the full loop, what is the best response?"
+  options={[
+    "Agree — Sam used 'I' language throughout and the technical design was solo",
+    "Disagree — Sam mentored 2 junior engineers, so collaboration is clearly strong",
+    "Acknowledge the mixed signal: the core design was largely solo, but Sam worked with ops on rollout, mentored junior engineers, and the recruiter noted Sam undersells collaboration — suggest the panel weigh communication style vs. actual working behavior",
+    "Suggest adding another interview round focused specifically on collaboration"
+  ]}
+  correctIndex={2}
+  explanation="The best response acknowledges mixed signal honestly rather than picking a side. The evidence genuinely points both ways: the architecture design was solo, but Sam demonstrated collaboration in rollout coordination, mentoring, and (per the recruiter) may simply undersell team contributions. A strong debrief participant weighs all the evidence and distinguishes between communication style and actual behavior."
+  incorrectExplanation="A strong debrief participant addresses mixed signal directly — not by dismissing it or cherry-picking one data point, but by weighing evidence from multiple sources. The 'I' framing, the mentoring evidence, the ops collaboration, and the recruiter's note about underselling collaboration all matter. Synthesize them rather than choosing one."
+/>
+
+<Quiz
+  sectionId="301-S6"
+  quizId="301-S6-Q2"
+  question="An interviewer's notes include: 'Really confident communicator — would fit right in with our team culture.' Why should this statement be flagged during the debrief?"
+  options={[
+    "It is too positive — interviewers should be more critical",
+    "It evaluates culture fit and team similarity rather than behavioral evidence against a defined principle — this is affinity bias",
+    "It does not include enough detail about the candidate's communication style",
+    "It should not be flagged — confidence is a valid signal for senior engineers"
+  ]}
+  correctIndex={1}
+  explanation="'Would fit right in with our team culture' is affinity bias — the interviewer is evaluating whether the candidate feels similar to the existing team, not whether they demonstrated a specific principle through their behavior. Culture fit assessments are a known vector for bias because they favor candidates who look, sound, or act like the existing team. In a structured interview, every evaluation should map to behavioral evidence against defined principles."
+  incorrectExplanation="The problem is not the tone or the detail level — it's that this note evaluates 'culture fit' rather than behavioral evidence. Saying someone would 'fit right in' is affinity bias: it favors candidates who seem similar to the existing team. Evaluations should be based on evidence against defined principles, not on how well someone seems to match the current team."
+/>
+
+<Quiz
+  sectionId="301-S6"
+  quizId="301-S6-Q3"
+  question="You are writing your debrief recommendation and you have strong evidence for 3 of the 4 principles, but Collaboration evidence is mixed. What is the most effective way to handle this in your write-up?"
+  options={[
+    "Focus on the 3 strong principles and skip Collaboration — the overall signal is positive enough",
+    "Rate Collaboration as 'no evidence' since the signal is unclear",
+    "Acknowledge the mixed Collaboration signal explicitly, cite the evidence on both sides, reference the recruiter notes as context, and state your assessment of what the evidence means for the role",
+    "Recommend no-hire because all principles need strong evidence"
+  ]}
+  correctIndex={2}
+  explanation="The strongest debrief participants do not skip gaps or overstate them. They address mixed signal head-on: here is the evidence for, here is the evidence against, here is the context that might explain the gap, and here is my assessment. This gives the panel the information they need to discuss and decide together. Skipping a principle or inflating a gap both undermine the quality of the decision."
+  incorrectExplanation="Mixed signal is not the same as no signal — and it should never be skipped. The best approach is to present both sides of the evidence, provide relevant context (like recruiter notes), and state your honest assessment. This gives the debrief panel what they need to make a good collective decision."
+/>
+
+</LearnDoCheck.Check>
+</LearnDoCheck>
