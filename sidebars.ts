@@ -3,11 +3,14 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   workshop101: [
     {
+      type: 'doc',
+      id: 'workshop-101/index',
+      label: 'Overview',
+    },
+    {
       type: 'category',
-      label: '101 — Foundations & STAR',
-      collapsible: true,
-      collapsed: false,
-      link: {type: 'doc', id: 'workshop-101/index'},
+      label: 'Modules',
+      collapsible: false,
       items: [
         'workshop-101/why-interviews-fail',
         'workshop-101/bar-raiser-philosophy',
@@ -23,11 +26,14 @@ const sidebars: SidebarsConfig = {
   ],
   workshop201: [
     {
+      type: 'doc',
+      id: 'workshop-201/index',
+      label: 'Overview',
+    },
+    {
       type: 'category',
-      label: '201 — Principles & Skills',
-      collapsible: true,
-      collapsed: false,
-      link: {type: 'doc', id: 'workshop-201/index'},
+      label: 'Modules',
+      collapsible: false,
       items: [
         'workshop-201/leadership-principles-overview',
         'workshop-201/mapping-stories-to-principles',
@@ -42,11 +48,14 @@ const sidebars: SidebarsConfig = {
   ],
   workshop301: [
     {
+      type: 'doc',
+      id: 'workshop-301/index',
+      label: 'Overview',
+    },
+    {
       type: 'category',
-      label: '301 — Advanced',
-      collapsible: true,
-      collapsed: false,
-      link: {type: 'doc', id: 'workshop-301/index'},
+      label: 'Modules',
+      collapsible: false,
       items: [
         'workshop-301/the-full-interview-loop',
         'workshop-301/frameworks-beyond-amazon',
