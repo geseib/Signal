@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Signal',
   tagline: 'Master the art of interviewing — for interviewers and candidates',
-  favicon: 'img/favicon_radio_tower_1A_white.ico',
+  favicon: 'img/radio_tower_1A_black.svg',
 
   url: 'https://signal-workshop.vercel.app',
   baseUrl: '/',
