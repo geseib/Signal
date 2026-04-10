@@ -11,15 +11,16 @@ export interface SectionMeta {
 
 export const SECTIONS: SectionMeta[] = [
   // Workshop 101
-  {id: '101-S1', title: 'Why Interviews Fail', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S1', title: 'Getting More From Interviews', workshop: '101', quizCount: 3, maxXP: 80},
   {id: '101-S2', title: 'The Bar Raiser Philosophy', workshop: '101', quizCount: 3, maxXP: 80},
   {id: '101-S3', title: 'Behavioral vs. Technical', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S4', title: 'STAR: Situation', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S5', title: 'STAR: Task', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S6', title: 'STAR: Action', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S7', title: 'STAR: Result', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S8', title: 'STAR Practice Lab', workshop: '101', quizCount: 3, maxXP: 80},
-  {id: '101-S9', title: 'Your First Mock Answer', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S4', title: 'The STAR Framework', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S5', title: 'STAR: Situation', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S6', title: 'STAR: Task', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S7', title: 'STAR: Action', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S8', title: 'STAR: Result', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S9', title: 'STAR Practice Lab', workshop: '101', quizCount: 3, maxXP: 80},
+  {id: '101-S10', title: 'Your First Mock Answer', workshop: '101', quizCount: 3, maxXP: 80},
   // Workshop 201 (placeholders)
   {id: '201-S1', title: "Your Organization's Principles", workshop: '201', quizCount: 3, maxXP: 80},
   {id: '201-S2', title: 'Mapping Stories to Principles', workshop: '201', quizCount: 3, maxXP: 80},

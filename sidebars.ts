@@ -12,9 +12,10 @@ const sidebars: SidebarsConfig = {
       label: 'Modules',
       collapsible: false,
       items: [
-        'workshop-101/why-interviews-fail',
+        'workshop-101/getting-more-from-interviews',
         'workshop-101/bar-raiser-philosophy',
         'workshop-101/behavioral-vs-technical',
+        'workshop-101/star-overview',
         'workshop-101/star-situation',
         'workshop-101/star-task',
         'workshop-101/star-action',
